@@ -50,3 +50,41 @@
       text-align: left;
     }
 }
+
+/* Page Bodies */
+body {
+    background-color: #eafffd;
+}
+
+/* Text Attributes */
+h1, h2, h3, h4, h5, h6, p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Buttons */
+.survey-button {
+    background-color: lightgrey;
+    border: none;
+    padding: 12px 24px;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    transition-duration: 0.2s;
+}
+
+.survey-button:hover {
+    background-color: grey;
+    color: white;
+}
+
+/* Footer */
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
