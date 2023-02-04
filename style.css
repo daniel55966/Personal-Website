@@ -52,7 +52,7 @@
 }
 
 /* Page Bodies */
-body {
+.bg-light {
     background-color: #eafffd;
 }
 
@@ -62,7 +62,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 /* Buttons */
-.survey-button {
+.index-button {
     background-color: lightgrey;
     border: none;
     padding: 12px 24px;
@@ -75,7 +75,7 @@ h1, h2, h3, h4, h5, h6, p {
     transition-duration: 0.2s;
 }
 
-.survey-button:hover {
+.index-button:hover {
     background-color: grey;
     color: white;
 }
