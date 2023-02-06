@@ -18,8 +18,8 @@
     <div class="topnav" id="myTopnav">
         <a href="/index.html">Home</a>
         <a href="/survey.html">Survey</a>
-        <a href="/results.html">Results</a>
-        <a href="/newsletter.html">Newsletter</a>
+        <a href="/results.php">Results</a>
+        <a href="/newsletter.php">Newsletter</a>
         <a class="active" href="/aboutus.html">About Us</a>
         <a href="javascript:void(0);" class="icon" onclick="navFunction()">
             <i class="fa fa-bars"></i>
@@ -31,46 +31,56 @@
       <p>This is some text about us.</p>
     </div>
 
-    <h2 class="text-center">Our Team</h2>
-    <div class="row">
-      <div class="column">
-        <div class="card">
-          <img>
-          <div class="about-us-container">
-            <h2>Bob Jones</h2>
-            <p class="title">CEO</p>
-            <p>Some text here.</p>
-            <p>bob@example.com</p>
-            <p><button class="index-button">Contact</button></p>
+    <!-- Employee Cards -->
+    <section class="our-team">
+      <h2 class="text-center">Our Team</h2>
+      <hr class="my-5">
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <div class="col">
+          <div class="card">
+            <img class="card-img-top" src="/images/me2.png" style="width: 50%; height: 50%;" alt="filler image">
+            <div class="card-body">
+              <h2 style="color: black;">Bob Jones</h2>
+              <p class="title" style="color: grey;">CEO</p>
+              <p style="color: black;">Some text here.</p>
+              <p style="color: black;">bob@example.com</p>
+              <p><button class="index-button">Contact</button></p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="column">
-        <div class="card">
-          <img>
-          <div class="about-us-container">
-            <h2>Bob Jones</h2>
-            <p class="title">CEO</p>
-            <p>Some text here.</p>
-            <p>bob@example.com</p>
-            <p><button class="index-button">Contact</button></p>
+        <div class="col">
+          <div class="card">
+            <img class="card-img-top" src="/images/230px-DQIX_Gem_Slime.png" style="width: 50%; height: 50%;" alt="filler image">
+            <div class="about-us-container">
+              <h2 style="color: black;">James Jameson</h2>
+              <p class="title" style="color: grey;">VP of Analytics</p>
+              <p style="color: black;">Some text here.</p>
+              <p style="color: black;">james@example.com</p>
+              <p><button class="index-button">Contact</button></p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="column">
-        <div class="card">
-          <img>
-          <div class="about-us-container">
-            <h2>Bob Jones</h2>
-            <p class="title">CEO</p>
-            <p>Some text here.</p>
-            <p>bob@example.com</p>
-            <p><button class="index-button">Contact</button></p>
+        <div class="col">
+          <div class="card">
+            <img class="card-img-top" src="/images/Pappy.PNG" style="width: 50%; height: 50%" alt="filler image">
+            <div class="about-us-container">
+              <h2 style="color: black;">Steve Adams</h2>
+              <p class="title" style="color: grey;">VP of Surveys</p>
+              <p style="color: black;">Some text here.</p>
+              <p style="color: black;">steve@example.com</p>
+              <p><button class="index-button">Contact</button></p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <footer class="py-4 bg-dark mt-auto">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Company 2023</p>
+      </div>
+    </footer>
   </body>
 </html>

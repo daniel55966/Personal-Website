@@ -65,6 +65,13 @@ html {
     background-color: #eafffd;
 }
 
+.our-team {
+    background-color: #434a42;
+    color: white;
+    padding: 20px;
+    margin: auto;
+}
+
 /* Text Attributes */
 h1, h2, h3, h4, h5, h6, p {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -136,6 +143,7 @@ p {
 
 /* Footer */
 footer {
+    position: absolute fixed;
     left: 0;
     bottom: 0;
     width: 100%;

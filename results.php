@@ -18,7 +18,7 @@
     <div class="topnav" id="myTopnav">
         <a href="/index.html">Home</a>
         <a href="/survey.html">Survey</a>
-        <a class="active" href="/results.html">Results</a>
+        <a class="active" href="/results.php">Results</a>
         <a href="/newsletter.html">Newsletter</a>
         <a href="/aboutus.html">About Us</a>
         <a href="javascript:void(0);" class="icon" onclick="navFunction()">
