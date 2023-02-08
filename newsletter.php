@@ -143,7 +143,7 @@
         <!-- Section Title -->
         <div class="row justify-content-center text-center">
           <div class="col md-6">
-            <h2 class="display-4 font-weight-bold">Sign up for our weekly newsletter!</h2>\
+            <h2 class="display-4 font-weight-bold">Sign up for our weekly newsletter!</h2>
             <hr />
           </div>
         </div>
