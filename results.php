@@ -62,7 +62,7 @@
 
     <div class="topnav" id="myTopnav">
         <a href="/index.html">Home</a>
-        <a href="/survey.html">Survey</a>
+        <a href="/survey.php">Survey</a>
         <a class="active" href="/results.php">Results</a>
         <a href="/newsletter.php">Newsletter</a>
         <a href="/aboutus.html">About Us</a>

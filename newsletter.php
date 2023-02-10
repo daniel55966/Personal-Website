@@ -129,7 +129,7 @@
   <body>
     <div class="topnav" id="myTopnav">
         <a href="/index.html">Home</a>
-        <a href="/survey.html">Survey</a>
+        <a href="/survey.php">Survey</a>
         <a href="/results.php">Results</a>
         <a class="active" href="/newsletter.php">Newsletter</a>
         <a href="/aboutus.html">About Us</a>
