@@ -64,7 +64,7 @@
         <a href="/index.html">Home</a>
         <a href="/survey.html">Survey</a>
         <a class="active" href="/results.php">Results</a>
-        <a href="/newsletter.html">Newsletter</a>
+        <a href="/newsletter.php">Newsletter</a>
         <a href="/aboutus.html">About Us</a>
         <a href="javascript:void(0);" class="icon" onclick="navFunction()">
             <i class="fa fa-bars"></i>
