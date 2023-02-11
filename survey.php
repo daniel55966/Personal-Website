@@ -15,7 +15,7 @@
     return $data;
   }
   
-  if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr)))  {  
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && !$formErr)  {  
     $hostname = "php-mysql-exercisedb.slccwebdev.com";
     $username = "phpmysqlexercise";
     $password = "mysqlexercise";
@@ -267,7 +267,7 @@
                 </label>                
                 <hr class="my-4" />
               </div>         
-              
+
           </div>        
         </div>
     </section>
