@@ -1,3 +1,82 @@
+<?php
+  if (!isset($_SESSION)) {
+    session_start();
+  }
+
+  $answerErr = "";
+  $questionNum = $answer = "";
+  $formErr = false;
+
+  // Clean and sanitize form inputs
+  function cleanInput($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+  
+  if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr)))  {  
+    $hostname = "php-mysql-exercisedb.slccwebdev.com";
+    $username = "phpmysqlexercise";
+    $password = "mysqlexercise";
+    $databasename = "php_mysql_exercisedb";
+
+    try {
+    //Create new PDO Object
+    $conn = new PDO("mysql:host=$hostname;dbname=$databasename", 
+            $username, $password);
+
+    //Set PDO error mode to exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    //Variable containing SQL command
+    $sql = "INSERT INTO da_survey_results (
+        questionNum,
+        answer
+    )
+    
+    VALUES (
+        :questionNum,
+        :answer 
+    );";
+
+    //Create prepared statement
+    $stmt = $conn->prepare($sql);
+
+    //Bind parameters to variables
+    $stmt->bindParam(':questionNum', $questionNum, PDO::PARAM_STR);
+    $stmt->bindParam(':answer', $answer, PDO::PARAM_STR);
+
+    //Execute SQL Statement on server
+    $stmt->execute();
+
+    //Create thank you message
+    $_SESSION['message'] = '<p class="font-weight-bold">Thank you
+    for your submission!</p><p class="font-weight-light">Your
+    request has been sent.</p>';
+    
+    //Redirect
+    header('Location: ' . $_SERVER['REQUEST_URI']);
+    exit;
+
+    } catch (PDOException $error) {
+      
+      //Return error code if one is created
+      $_SESSION['message'] = '<p>We apologize, the form was not
+      submitted successfully. Please try again later.</p>';
+
+      $_SESSION['complete'] = true;
+
+      //Redirect
+      header('Location: ' . $_SERVER['REQUEST_URI']);
+      exit;
+    }
+
+    $conn = null;
+  } 
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -41,13 +120,13 @@
             <form class=" bg-white px-4" action="results.php">
               <p class="fw-bold">Which brand of cola do you prefer, Coke or Pepsi?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question1" id="coke" value="Coke" />
+                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
                 <label class="form-check-label" for="coke">
                   Coke
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question1" id="pepsi" value="Pepsi" />
+                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
                 <label class="form-check-label" for="pepsi">
                   Pepsi
                 </label>                
@@ -56,13 +135,13 @@
 
               <p class="fw-bold">Have you ever tried both brands and switched from one to the other?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question2" id="yes" value="Yes" />
+                <input class="form-check-input" type="radio" name="answer" id="yes" value="Yes" <?php if ((isset($answer)) && ($answer == "Yes")) {echo "checked";} ?> />
                 <label class="form-check-label" for="yes">
                   Yes
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question2" id="no" value="No" />
+                <input class="form-check-input" type="radio" name="answer" id="no" value="No" <?php if ((isset($answer)) && ($answer == "No")) {echo "checked";} ?> />
                 <label class="form-check-label" for="no">
                   No
                 </label>                
@@ -71,13 +150,13 @@
 
               <p class="fw-bold">Which brand do you think has the better advertisements?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question3" id="coke" value="Coke" />
+                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
                 <label class="form-check-label" for="coke">
                   Coke
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question3" id="pepsi" value="Pepsi" />
+                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
                 <label class="form-check-label" for="pepsi">
                   Pepsi
                 </label>                
@@ -86,13 +165,13 @@
 
               <p class="fw-bold">Which brand do you think is more affordable?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question4" id="coke" value="Coke" />
+                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
                 <label class="form-check-label" for="coke">
                   Coke
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question4" id="pepsi" value="Pepsi" />
+                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
                 <label class="form-check-label" for="pepsi">
                   Pepsi
                 </label>                
@@ -101,13 +180,13 @@
 
               <p class="fw-bold">Which brand do you associate more with special events or occasions?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question5" id="coke" value="Coke" />
+                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
                 <label class="form-check-label" for="coke">
                   Coke
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question5" id="pepsi" value="Pepsi" />
+                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
                 <label class="form-check-label" for="pepsi">
                   Pepsi
                 </label>                
@@ -116,13 +195,13 @@
 
               <p class="fw-bold">Have you noticed a difference in the ingredients between Coke and Pepsi?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question6" id="yes" value="Yes" />
+                <input class="form-check-input" type="radio" name="answer" id="yes" value="Yes" <?php if ((isset($answer)) && ($answer == "Yes")) {echo "checked";} ?> />
                 <label class="form-check-label" for="yes">
                   Yes
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question6" id="no" value="No" />
+                <input class="form-check-input" type="radio" name="answer" id="no" value="No" <?php if ((isset($answer)) && ($answer == "No")) {echo "checked";} ?> />
                 <label class="form-check-label" for="no">
                   No
                 </label>                
@@ -131,13 +210,13 @@
 
               <p class="fw-bold">Have you tried any other cola brands besides Coke and Pepsi?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question7" id="yes" value="Yes" />
+                <input class="form-check-input" type="radio" name="answer" id="yes" value="Yes" <?php if ((isset($answer)) && ($answer == "Yes")) {echo "checked";} ?> />
                 <label class="form-check-label" for="yes">
                   Yes
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question7" id="no" value="No" />
+                <input class="form-check-input" type="radio" name="answer" id="no" value="No" <?php if ((isset($answer)) && ($answer == "No")) {echo "checked";} ?> />
                 <label class="form-check-label" for="no">
                   No
                 </label>                
@@ -146,13 +225,13 @@
 
               <p class="fw-bold">Which brand do you think has a better overall reputation?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question8" id="coke" value="Coke" />
+                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
                 <label class="form-check-label" for="coke">
                   Coke
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question8" id="pepsi" value="Pepsi" />
+                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
                 <label class="form-check-label" for="pepsi">
                   Pepsi
                 </label>                
@@ -161,13 +240,13 @@
 
               <p class="fw-bold">Which brand do you think has a more unique taste?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question9" id="coke" value="Coke" />
+                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
                 <label class="form-check-label" for="coke">
                   Coke
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question9" id="pepsi" value="Pepsi" />
+                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
                 <label class="form-check-label" for="pepsi">
                   Pepsi
                 </label>                
@@ -176,23 +255,19 @@
 
               <p class="fw-bold">Which brand do you think has a more appealing packaging design?</p>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question9" id="coke" value="Coke" />
+                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
                 <label class="form-check-label" for="coke">
                   Coke
                 </label>
               </div>
               <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="question9" id="pepsi" value="Pepsi" />
+                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
                 <label class="form-check-label" for="pepsi">
                   Pepsi
                 </label>                
                 <hr class="my-4" />
-              </div>
-              <button type="button" class="index-button">Submit</button>
-            </form>
-            <div class="text-end">
-            </div>            
-
+              </div>         
+              
           </div>        
         </div>
     </section>
