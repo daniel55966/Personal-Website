@@ -1,10 +1,15 @@
 <?php
+  ini_set('display_errors', '1');
+  ini_set('display_startup_errors', '1');
+  error_reporting(E_ALL);
+
   if (!isset($_SESSION)) {
     session_start();
   }
 
   $answerErr = "";
-  $questionNum = $answer = "";
+  $question_numbers = $_POST['question_numbers'] ?? [];
+  $answers = $_POST['answers'] ?? [];
   $formErr = false;
 
   // Clean and sanitize form inputs
@@ -21,6 +26,10 @@
     $password = "mysqlexercise";
     $databasename = "php_mysql_exercisedb";
 
+    /* echo "<pre>";
+    var_dump($_POST);
+    exit; */
+
     try {
     //Create new PDO Object
     $conn = new PDO("mysql:host=$hostname;dbname=$databasename", 
@@ -29,26 +38,37 @@
     //Set PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    //Variable containing SQL command
-    $sql = "INSERT INTO da_survey_results (
-        questionNum,
-        answer
-    )
-    
-    VALUES (
-        :questionNum,
-        :answer 
-    );";
+    $user_id = time();
 
-    //Create prepared statement
-    $stmt = $conn->prepare($sql);
+    foreach ($_POST['answers'] as $question_number => $answer) {
+      //Variable containing SQL command
+      $sql = "INSERT INTO da_survey_results (
+          question_number,
+          answer,
+          user_id
+      )
+      
+      VALUES (
+          :question_number,
+          :answer,
+          :user_id
+      );";
 
-    //Bind parameters to variables
-    $stmt->bindParam(':questionNum', $questionNum, PDO::PARAM_STR);
-    $stmt->bindParam(':answer', $answer, PDO::PARAM_STR);
+      //Create prepared statement
+      $stmt = $conn->prepare($sql);
 
-    //Execute SQL Statement on server
-    $stmt->execute();
+      //Initialize variables
+      $question_number = cleanInput($question_number) + 1;
+      $answer = cleanInput($answer);
+
+      //Bind parameters to variables
+      $stmt->bindParam(':question_number', $question_number, PDO::PARAM_STR);
+      $stmt->bindParam(':answer', $answer, PDO::PARAM_STR);
+      $stmt->bindParam(':user_id', $user_id, PDO::PARAM_STR);
+
+      //Execute SQL Statement on server
+      $stmt->execute();
+   }
 
     //Create thank you message
     $_SESSION['message'] = '<p class="font-weight-bold">Thank you
@@ -56,8 +76,8 @@
     request has been sent.</p>';
     
     //Redirect
-    header('Location: ' . $_SERVER['REQUEST_URI']);
-    exit;
+    //header('Location: ' . $_SERVER['REQUEST_URI']);
+    //exit;
 
     } catch (PDOException $error) {
       
@@ -66,10 +86,12 @@
       submitted successfully. Please try again later.</p>';
 
       $_SESSION['complete'] = true;
+      var_dump($error);
+      exit;
 
       //Redirect
-      header('Location: ' . $_SERVER['REQUEST_URI']);
-      exit;
+      //header('Location: ' . $_SERVER['REQUEST_URI']);
+      //exit;
     }
 
     $conn = null;
@@ -91,6 +113,34 @@
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         <script src="script.js"></script>
+        <script>
+          /* Survey Modal Functions
+          // Get the modal
+          var modal = document.getElementById("modal");
+
+          // Get the button that opens the modal
+          var btn = document.getElementById("open-modal");
+
+          // Get the <span> element that closes the modal
+          var span = document.getElementsByClassName("close")[0];
+
+          // When the user clicks the button, open the modal 
+          btn.onclick = function() {
+            modal.style.display = "block";
+          }
+
+          // When the user clicks on <span> (x), close the modal
+          span.onclick = function() {
+            modal.style.display = "none";
+          }
+
+          // When the user clicks anywhere outside of the modal, close it
+          window.onclick = function(event) {
+            if (event.target == modal) {
+              modal.style.display = "none";
+            }
+          } */
+        </script>
     </head>
 
   <body class="bg-light">
@@ -116,157 +166,125 @@
         <div class="row align-items-center justify-content-center text-left
         py-5">
         <div class="row col-5">
-            <h4 class="fw-bold text-center mt-3"></h4>
-            <form class=" bg-white px-4" action="results.php">
-              <p class="fw-bold">Which brand of cola do you prefer, Coke or Pepsi?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
-                <label class="form-check-label" for="coke">
-                  Coke
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
-                <label class="form-check-label" for="pepsi">
-                  Pepsi
-                </label>                
-                <hr class="my-4" />
-              </div>
+          <h4 class="fw-bold text-center mt-3"></h4>
+            <form class=" bg-white px-4" action="survey.php" method="post">
 
-              <p class="fw-bold">Have you ever tried both brands and switched from one to the other?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="yes" value="Yes" <?php if ((isset($answer)) && ($answer == "Yes")) {echo "checked";} ?> />
-                <label class="form-check-label" for="yes">
-                  Yes
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="no" value="No" <?php if ((isset($answer)) && ($answer == "No")) {echo "checked";} ?> />
-                <label class="form-check-label" for="no">
-                  No
-                </label>                
-                <hr class="my-4" />
-              </div>
+              <?php 
+              $questions = [
+                [
+                  'type' => 'coke-pepsi',
+                  'question' => 'Which brand of cola do you prefer, Coke or Pepsi?',
+                ],
 
-              <p class="fw-bold">Which brand do you think has the better advertisements?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
-                <label class="form-check-label" for="coke">
-                  Coke
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
-                <label class="form-check-label" for="pepsi">
-                  Pepsi
-                </label>                
-                <hr class="my-4" />
-              </div>
+                [
+                  'type' => 'yes-no',
+                  'question' => 'Have you ever tried both brands and switched from one to the other?',
+                ],
 
-              <p class="fw-bold">Which brand do you think is more affordable?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
-                <label class="form-check-label" for="coke">
-                  Coke
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
-                <label class="form-check-label" for="pepsi">
-                  Pepsi
-                </label>                
-                <hr class="my-4" />
-              </div>
+                [
+                  'type' => 'coke-pepsi',
+                  'question' => 'Which brand do you think has the better advertisements?',
+                ],
 
-              <p class="fw-bold">Which brand do you associate more with special events or occasions?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
-                <label class="form-check-label" for="coke">
-                  Coke
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
-                <label class="form-check-label" for="pepsi">
-                  Pepsi
-                </label>                
-                <hr class="my-4" />
-              </div>
+                [
+                  'type' => 'coke-pepsi',
+                  'question' => 'Which brand do you think is more affordable?',
+                ],
 
-              <p class="fw-bold">Have you noticed a difference in the ingredients between Coke and Pepsi?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="yes" value="Yes" <?php if ((isset($answer)) && ($answer == "Yes")) {echo "checked";} ?> />
-                <label class="form-check-label" for="yes">
-                  Yes
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="no" value="No" <?php if ((isset($answer)) && ($answer == "No")) {echo "checked";} ?> />
-                <label class="form-check-label" for="no">
-                  No
-                </label>                
-                <hr class="my-4" />
-              </div>
+                [
+                  'type' => 'coke-pepsi',
+                  'question' => 'Which brand do you associate more with special events or occasions?',
+                ],
 
-              <p class="fw-bold">Have you tried any other cola brands besides Coke and Pepsi?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="yes" value="Yes" <?php if ((isset($answer)) && ($answer == "Yes")) {echo "checked";} ?> />
-                <label class="form-check-label" for="yes">
-                  Yes
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="no" value="No" <?php if ((isset($answer)) && ($answer == "No")) {echo "checked";} ?> />
-                <label class="form-check-label" for="no">
-                  No
-                </label>                
-                <hr class="my-4" />
-              </div>
+                [
+                  'type' => 'yes-no',
+                  'question' => 'Have you noticed a difference in the ingredients between Coke and Pepsi?',
+                ],
 
-              <p class="fw-bold">Which brand do you think has a better overall reputation?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
-                <label class="form-check-label" for="coke">
-                  Coke
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
-                <label class="form-check-label" for="pepsi">
-                  Pepsi
-                </label>                
-                <hr class="my-4" />
-              </div>
+                [
+                  'type' => 'yes-no',
+                  'question' => 'Have you tried any other cola brands besides Coke and Pepsi?',
+                ],
 
-              <p class="fw-bold">Which brand do you think has a more unique taste?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
-                <label class="form-check-label" for="coke">
-                  Coke
-                </label>
-              </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
-                <label class="form-check-label" for="pepsi">
-                  Pepsi
-                </label>                
-                <hr class="my-4" />
-              </div>
+                [
+                  'type' => 'coke-pepsi',
+                  'question' => 'Which brand do you think has a better overall reputation?',
+                ],
 
-              <p class="fw-bold">Which brand do you think has a more appealing packaging design?</p>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="coke" value="Coke" <?php if ((isset($answer)) && ($answer == "Coke")) {echo "checked";} ?> />
-                <label class="form-check-label" for="coke">
-                  Coke
-                </label>
+                [
+                  'type' => 'coke-pepsi',
+                  'question' => 'Which brand do you think has a more unique taste?',
+                ],
+
+                [
+                  'type' => 'coke-pepsi',
+                  'question' => 'Which brand do you think has a more appealing packaging design?',
+                ],
+              ];
+
+              function coke_radio_button($number) {
+                echo '<div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="answers['.$number.']" id="coke" value="Coke" />
+                        <label class="form-check-label" for="coke">
+                          Coke
+                        </label>
+                      </div>';
+              }
+
+              function pepsi_radio_button($number) {
+                echo '<div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="answers['.$number.']" id="pepsi" value="Pepsi" />
+                        <label class="form-check-label" for="pepsi">
+                          Pepsi
+                        </label>
+                      </div>';
+              }
+                          
+              function yes_radio_button($number) {
+                echo '<div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="answers['.$number.']" id="yes" value="Yes" />
+                        <label class="form-check-label" for="yes">
+                          Yes
+                        </label>
+                      </div>';
+              }
+
+              function no_radio_button($number) {
+                echo '<div class="form-check mb-2">
+                        <input class="form-check-input" type="radio" name="answers['.$number.']" id="no" value="No" />
+                        <label class="form-check-label" for="no">
+                          No
+                        </label>
+                      </div>';
+              }
+              
+              foreach ($questions as $index => $question) {
+                $question_number = $index;
+                ?><!-- Question <?= $question_number ?> -->
+                          <input type="hidden" name="question_numbers[]" value="<?= $question_number ?>">
+                          <p class="fw-bold"><?= $question['question'] ?></p>
+                          <?php if ($question['type'] == 'coke-pepsi') {
+                            coke_radio_button($question_number);
+                            pepsi_radio_button($question_number);
+                          }
+                          if ($question['type'] == 'yes-no') {
+                            yes_radio_button($question_number);
+                            no_radio_button($question_number);
+                          } ?>            
+                <hr class="my-4" /><?php
+              }
+              ?>
+
+              <input type="submit" class="index-button" id="open-modal"></button>
+              <div id="survey-modal" class="survey-modal">
+                <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Thank you for submitting the survey!</p>
+                </div>
               </div>
-              <div class="form-check mb-2">
-                <input class="form-check-input" type="radio" name="answer" id="pepsi" value="Pepsi" <?php if ((isset($answer)) && ($answer == "Pepsi")) {echo "checked";} ?> />
-                <label class="form-check-label" for="pepsi">
-                  Pepsi
-                </label>                
-                <hr class="my-4" />
-              </div>         
+            </form>
+            <div class="text-end">
+            </div> 
 
           </div>        
         </div>

@@ -1,3 +1,28 @@
+<?php
+  ini_set('display_errors', '1');
+  ini_set('display_startup_errors', '1');
+  error_reporting(E_ALL);
+
+  require_once "db_conn.php";
+
+  $sql = "SELECT question_number,
+               SUM(CASE WHEN answer = 'Coke' THEN 1 ELSE 0 END) AS 'Coke',
+               SUM(CASE WHEN answer = 'Pepsi' THEN 1 ELSE 0 END) AS 'Pepsi',
+               SUM(CASE WHEN answer = 'Yes' THEN 1 ELSE 0 END) AS 'Yes',
+               SUM(CASE WHEN answer = 'No' THEN 1 ELSE 0 END) AS 'No'
+        FROM da_survey_results
+        GROUP BY question_number";
+  $result = $conn->query($sql);
+
+  if ($result->num_rows > 0) {
+    $results = array();
+    while($row = $result->fetch_assoc()) {
+      $results[] = $row;
+    }
+  } else {
+    echo "0 results";
+  }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,5 +95,38 @@
             <i class="fa fa-bars"></i>
         </a>
     </div>
+
+    <section id="table">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>Data Table</h2>
+
+            <!-- Table -->
+            <table>
+              <tr>
+                <th>ID</th>
+                <th>Question Number</th>
+                <th>Answer</th>
+                <th>User ID</th>
+              </tr>
+              <?php
+              $sql = "SELECT * FROM da_survey_results";
+              $result = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['id'] . "</td>";
+                echo "<td>" . $row['question_number'] . "</td>";
+                echo "<td>" . $row['answer'] . "</td>";
+                echo "<td>" . $row['user_id'] ?? '' . "</td>";
+                echo "</tr>";
+              }
+              ?>
+            </table>
+
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
