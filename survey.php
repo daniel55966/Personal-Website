@@ -146,11 +146,11 @@
   <body class="bg-light">
     <header>
         <div class="topnav" id="myTopnav">
-            <a class="active" href="/index.html">Home</a>
+            <a class="active" href="/index.php">Home</a>
             <a href="/survey.php">Survey</a>
             <a href="/results.php">Results</a>
             <a href="/newsletter.php">Newsletter</a>
-            <a href="/aboutus.html">About Us</a>
+            <a href="/aboutus.php">About Us</a>
             <a href="javascript:void(0);" class="icon" onclick="navFunction()">
                 <i class="fa fa-bars"></i>
             </a>

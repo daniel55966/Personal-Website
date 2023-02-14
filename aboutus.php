@@ -16,17 +16,17 @@
 
   <body>
     <div class="topnav" id="myTopnav">
-        <a href="/index.html">Home</a>
+        <a href="/index.php">Home</a>
         <a href="/survey.php">Survey</a>
         <a href="/results.php">Results</a>
         <a href="/newsletter.php">Newsletter</a>
-        <a class="active" href="/aboutus.html">About Us</a>
+        <a class="active" href="/aboutus.php">About Us</a>
         <a href="javascript:void(0);" class="icon" onclick="navFunction()">
             <i class="fa fa-bars"></i>
         </a>
     </div>
 
-    <div class="about-section text-center">
+    <div class="about-section text-center intro">
       <h1>About Us</h1>
       <p>This is some text about us.</p>
     </div>

@@ -86,11 +86,11 @@
     </div>
 
     <div class="topnav" id="myTopnav">
-        <a href="/index.html">Home</a>
+        <a href="/index.php">Home</a>
         <a href="/survey.php">Survey</a>
         <a class="active" href="/results.php">Results</a>
         <a href="/newsletter.php">Newsletter</a>
-        <a href="/aboutus.html">About Us</a>
+        <a href="/aboutus.php">About Us</a>
         <a href="javascript:void(0);" class="icon" onclick="navFunction()">
             <i class="fa fa-bars"></i>
         </a>

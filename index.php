@@ -16,11 +16,11 @@
 
   <body class="bg-light">
       <div class="topnav" id="myTopnav">
-          <a class="active" href="/index.html">Home</a>
+          <a class="active" href="/index.php">Home</a>
           <a href="/survey.php">Survey</a>
           <a href="/results.php">Results</a>
           <a href="/newsletter.php">Newsletter</a>
-          <a href="/aboutus.html">About Us</a>
+          <a href="/aboutus.php">About Us</a>
           <a href="javascript:void(0);" class="icon" onclick="navFunction()">
               <i class="fa fa-bars"></i>
           </a>
@@ -45,7 +45,7 @@
           <div class="col-lg-6 my-3">
             <h3 class="font-weight-bold">Little Bit About Us</h3>
             <p class="font-weight-light">We take survey data and use MAGIC on it to know stuff. Learn more here!</p>
-            <a href="/aboutus.html" class="button index-button" role="button">About Us</a>
+            <a href="/aboutus.php" class="button index-button" role="button">About Us</a>
           </div>
         </div>
       </div>

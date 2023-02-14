@@ -78,6 +78,10 @@ body {
     height: 50vh;
 }
 
+.newsletter {
+    height: 100vh;
+}
+
 .our-team {
     background-color: #434a42;
     color: white;

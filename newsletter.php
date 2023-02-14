@@ -128,11 +128,11 @@
 
   <body>
     <div class="topnav" id="myTopnav">
-        <a href="/index.html">Home</a>
+        <a href="/index.php">Home</a>
         <a href="/survey.php">Survey</a>
         <a href="/results.php">Results</a>
         <a class="active" href="/newsletter.php">Newsletter</a>
-        <a href="/aboutus.html">About Us</a>
+        <a href="/aboutus.php">About Us</a>
         <a href="javascript:void(0);" class="icon" onclick="navFunction()">
             <i class="fa fa-bars"></i>
         </a>
@@ -144,6 +144,7 @@
         <div class="row justify-content-center text-center">
           <div class="col md-6">
             <h2 class="display-4 font-weight-bold">Sign up for our weekly newsletter!</h2>
+            <p>Text explaining what the newsletter is for here.</p>
             <hr />
           </div>
         </div>
