@@ -4,10 +4,10 @@
  error_reporting(E_ALL);
     require_once "db_conn.php";
 
-    $sql = "INSERT INTO da_survey_results SET question_number = '1', answer = 'foobar';";
+    $sql = "INSERT INTO da_newsletter_table SET name = 'Bob Bobson', email = 'email@email.com';";
     $conn->query($sql);
 
-    $sql = "SELECT * FROM da_survey_results;";
+    $sql = "SELECT * FROM da_newsletter_table;";
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {

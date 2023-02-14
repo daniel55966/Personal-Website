@@ -57,6 +57,18 @@
         });
       });
     </script>
+
+    <!-- Pagination Scrips -->
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <!-- Initialize Datatables Pagination --> 
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable();
+        });
+    </script>
+
   </head>
 
   <body>
@@ -100,28 +112,32 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h2>Data Table</h2>
-
+            <h2>Survey Results</h2>
+            <hr />
             <!-- Table -->
-            <table>
-              <tr>
-                <th>ID</th>
-                <th>Question Number</th>
-                <th>Answer</th>
-                <th>User ID</th>
-              </tr>
-              <?php
-              $sql = "SELECT * FROM da_survey_results";
-              $result = mysqli_query($conn, $sql);
-              while ($row = mysqli_fetch_assoc($result)) {
-                echo "<tr>";
-                echo "<td>" . $row['id'] . "</td>";
-                echo "<td>" . $row['question_number'] . "</td>";
-                echo "<td>" . $row['answer'] . "</td>";
-                echo "<td>" . $row['user_id'] ?? '' . "</td>";
-                echo "</tr>";
-              }
-              ?>
+            <table class="table" id="dataTable">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Question Number</th>
+                  <th>Answer</th>
+                  <th>User ID</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                $sql = "SELECT * FROM da_survey_results";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<td>" . $row['id'] . "</td>";
+                  echo "<td>" . $row['question_number'] . "</td>";
+                  echo "<td>" . $row['answer'] . "</td>";
+                  echo "<td>" . $row['user_id'] ?? '' . "</td>";
+                  echo "</tr>";
+                }
+                ?>
+              </tbody>
             </table>
 
           </div>

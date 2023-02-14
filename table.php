@@ -12,11 +12,12 @@
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); 
       
       //Variable containing SQL command
-      $sql = "CREATE TABLE da_survey_results (
-        id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-        question_number VARCHAR(30) NOT NULL,
-        answer VARCHAR(30) NOT NULL
-    )";
+      $sql = "CREATE TABLE da_newsletter_table (
+              contactID INT(6) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+              name VARCHAR(100) NULL,
+              email VARCHAR(100) NULL,
+              comments VARCHAR(600) NULL,
+              dateSent DATETIME DEFAULT CURRENT_TIMESTAMP);";
 
       //Execute SQL statement on server
       $conn->exec($sql);

@@ -59,7 +59,7 @@
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     //Variable containing SQL command
-    $sql = "INSERT INTO da_fa2022_Contacts (
+    $sql = "INSERT INTO da_newsletter_table (
         name,
         email,
         comments
@@ -77,7 +77,6 @@
     //Bind parameters to variables
     $stmt->bindParam(':name', $name, PDO::PARAM_STR);
     $stmt->bindParam(':email', $email, PDO::PARAM_STR);
-    $stmt->bindParam(':contactBack', $contBack, PDO::PARAM_STR);
     $stmt->bindParam(':comments', $comments, PDO::PARAM_STR);
 
     //Execute SQL Statement on server

@@ -16,14 +16,14 @@
 
   <body class="bg-light">
       <div class="topnav" id="myTopnav">
-          <a class="active" href="/index.php">Home</a>
-          <a href="/survey.php">Survey</a>
-          <a href="/results.php">Results</a>
-          <a href="/newsletter.php">Newsletter</a>
-          <a href="/aboutus.php">About Us</a>
-          <a href="javascript:void(0);" class="icon" onclick="navFunction()">
-              <i class="fa fa-bars"></i>
-          </a>
+        <a class="active" href="/index.php">Home</a>
+        <a href="/survey.php">Survey</a>
+        <a href="/results.php">Results</a>
+        <a href="/newsletter.php">Newsletter</a>
+        <a href="/aboutus.php">About Us</a>
+        <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
       </div>
 
 
@@ -51,10 +51,10 @@
       </div>
     </section>
 
-  <footer class="py-4 bg-dark mt-auto">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Company 2023</p>
-    </div>
-  </footer>
+    <footer class="py-4 bg-dark mt-auto">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Company 2023</p>
+      </div>
+    </footer>
   </body>
 </html>
