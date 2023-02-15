@@ -126,15 +126,19 @@
   </head>
 
   <body>
+  <!-- Navbar -->
     <div class="topnav" id="myTopnav">
-        <a href="/index.php">Home</a>
-        <a href="/survey.php">Survey</a>
-        <a href="/results.php">Results</a>
-        <a class="active" href="/newsletter.php">Newsletter</a>
-        <a href="/aboutus.php">About Us</a>
-        <a href="javascript:void(0);" class="icon" onclick="navFunction()">
-            <i class="fa fa-bars"></i>
-        </a>
+      <a class="active" href="/index.php">Home</a>
+      <a href="/survey.php">Survey</a>
+      <a href="/results.php">Results</a>
+      <a href="/newsletter.php">Newsletter</a>
+      <a href="/aboutus.php">About Us</a>
+      <a href="https://www.linkedin.com" class="linkedin split"><i class="fa fa-linkedin"></i></a>
+      <a href="https://www.twitter.com" class="twitter split"><i class="fa fa-twitter"></i></a>
+      <a href="https://www.facebook.com" class="facebook split"><i class="fa fa-facebook"></i></a>
+      <a href="javascript:void(0);" class="icon" onclick="navFunction()">
+          <i class="fa fa-bars"></i>
+      </a>
     </div>
 
     <section class="newsletter" id="newsletter">
