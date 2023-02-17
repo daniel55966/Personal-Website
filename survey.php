@@ -123,9 +123,6 @@
       <a href="/results.php">Results</a>
       <a href="/newsletter.php">Newsletter</a>
       <a href="/aboutus.php">About Us</a>
-      <a href="https://www.linkedin.com" class="linkedin split"><i class="fa fa-linkedin"></i></a>
-      <a href="https://www.twitter.com" class="twitter split"><i class="fa fa-twitter"></i></a>
-      <a href="https://www.facebook.com" class="facebook split"><i class="fa fa-facebook"></i></a>
       <a href="javascript:void(0);" class="icon" onclick="navFunction()">
           <i class="fa fa-bars"></i>
       </a>
@@ -264,10 +261,36 @@
         </div>
     </section>
 
-    <footer class="py-4 bg-dark mt-auto">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Company 2023</p>
-      </div>
-    </footer>
+    <div class="footer-dark">
+      <footer>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-6 col-md-3 item">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="/survey.php">Surveys</a></li>
+            </ul>
+            </div>
+            <div class="col-sm-6 col-md-3 item">
+              <h3>About</h3>
+              <ul>
+                <li><a href="/aboutus.php">Company</a></li>
+                <li><a href="/aboutus.php">Team</a></li>
+              </ul>
+            </div>
+            <div class="col-md-6 item text">
+              <h3>Company Name</h3>
+              <p>Some text about our company here.</p>
+            </div>
+            <div class="col item social">
+              <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
+              <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
+            </div>
+          </div>
+          <p class="copyright">Company Name &copy; 2023</p>
+        </div>
+      </footer>
+    </div>
   </body>
 </html>
