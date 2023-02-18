@@ -70,7 +70,7 @@
     </script>
   </head>
 
-  <body>
+  <body class="bg-white">
     <div class="modal" id="passwordModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -97,16 +97,24 @@
     </div>
 
     <!-- Navbar -->
-    <div class="topnav" id="myTopnav">
-      <a class="active" href="/index.php">Home</a>
-      <a href="/survey.php">Survey</a>
-      <a href="/results.php">Results</a>
-      <a href="/newsletter.php">Newsletter</a>
-      <a href="/aboutus.php">About Us</a>
-      <a href="javascript:void(0);" class="icon" onclick="navFunction()">
-          <i class="fa fa-bars"></i>
-      </a>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav">
+            <a href="/index.php" class="nav-item nav-link">Home</a>
+            <a href="/survey.php" class="nav-item nav-link">Survey</a>
+            <a href="/results.php" class="nav-item nav-link active">Results</a>
+            <a href="/aboutus.php" class="nav-item nav-link">About Us</a>
+            <a href="/newsletter.php" class="nav-item nav-link">Newsletter</a>          
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
 
     <section id="table">
       <div class="container py-5">
@@ -173,7 +181,7 @@
               <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
             </div>
           </div>
-          <p class="copyright">Company Name &copy; 2023</p>
+          <p class="copyright">Salt Lake Analytics &copy; 2023</p>
         </div>
       </footer>
     </div>
