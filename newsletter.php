@@ -196,6 +196,7 @@
             <h3>Services</h3>
             <ul>
               <li><a href="/survey.php">Surveys</a></li>
+              <li><a href="#">Analytics</a></li>
             </ul>
             </div>
             <div class="col-sm-6 col-md-3 item">
