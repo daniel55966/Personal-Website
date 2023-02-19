@@ -39,25 +39,6 @@ p {
     margin-top: 20px;
 }
 
-/* Buttons */
-.index-button {
-    background-color: lightgrey;
-    border: none;
-    padding: 12px 24px;
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 4px;
-    transition-duration: 0.2s;
-}
-
-.index-button:hover {
-    background-color: grey;
-    color: white;
-}
-
 /* Survey Sections */
 .survey-section {
     padding: 10px 10px;

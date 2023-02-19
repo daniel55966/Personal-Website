@@ -254,7 +254,7 @@
               }
               ?>
 
-              <input type="submit" class="index-button" id="open-modal"></button>
+              <input type="submit" class="btn btn-success" id="open-modal"></button>
               <div id="survey-modal" class="survey-modal">
                 <div class="modal-content">
                   <span class="close">&times;</span>

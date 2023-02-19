@@ -42,18 +42,18 @@
           <hr class="my-5" />
           <p class="font-weight-light">Let's find out, shall we? Take our survey about Coke vs Pepsi 
           so we can find out how cool you are (Hint: You're cool regardless).</p>
-          <a href="/survey.php" class="button index-button" role="button">Take Survey</a>
+          <a href="/survey.php" class="btn btn-primary" role="button">Take Survey</a>
         </div>
       </div>
     </div>
 
     <section class="aboutUs" id="about">
       <div class="container p-5 my-5 border">
-        <div class="row align-items-center justify-content-center text-center">
+        <div class="row align-items-center justify-content-center text-center h-100">
           <div class="col-lg-6 my-3">
             <h3 class="font-weight-bold">Little Bit About Us</h3>
             <p class="font-weight-light">We take survey data and use MAGIC on it to know stuff. Learn more here!</p>
-            <a href="/aboutus.php" class="button index-button" role="button">About Us</a>
+            <a href="/aboutus.php" class="btn btn-secondary" role="button">About Us</a>
           </div>
         </div>
       </div>

@@ -182,14 +182,14 @@
 						<div class="form-group">
 							<label for="comments">Comments:</label>
 							<textarea id="comments" class="form-control" rows="3" name="comments">
-              <?php if (isset($comment)) {echo $comment;} ?></textarea>
+              <?php if (isset($comment)) {echo $comment;} ?></textarea><br>
 						</div>
 
             <!-- Required Fields Note -->
-            <div class="text-danger text-right">* Indicates Required Fields</div>
+            <div class="text-danger text-right">* Indicates Required Fields</div><br>
 
             <!-- Submit Button -->
-            <button class="index-button" type="submit" role="button" name="submit">Submit</button>
+            <button class="btn btn-success" type="submit" role="button" name="submit">Submit</button>
             </form>
           </div>
         </div>
