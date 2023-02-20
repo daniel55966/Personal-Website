@@ -70,8 +70,9 @@
     </script>
   </head>
 
-  <body class="bg-white">
-    <div class="modal" id="passwordModal">
+  <body class="bg-light">  
+    <!-- Modal -->
+    <div class="modal" id="passwordModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -90,14 +91,15 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="index-button" id="submitButton">Submit</button>
+            <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
           </div>
         </div>
       </div>
     </div>
+    <!-- Modal --> 
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
         <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">

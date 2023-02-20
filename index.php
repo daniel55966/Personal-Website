@@ -14,9 +14,9 @@
     <script src="script.js"></script>
   </head>
 
-  <body class="bg-white">
+  <body class="bg-light">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
         <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -47,7 +47,22 @@
       </div>
     </div>
 
-    <section class="aboutUs" id="about">
+    <div class="container">
+      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://images.unsplash.com/photo-1675510183229-c50371163c19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Typing on laptop">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1674726253061-baba094ad8c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Man working on a tool rack in a garage">
+          </div>
+          <div class="carousel-item">
+            <img src="https://images.unsplash.com/photo-1674654200851-294062f03fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Man working on a laptop">
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="container p-5 my-5 border">
         <div class="row align-items-center justify-content-center text-center h-100">
           <div class="col-lg-6 my-3">
@@ -57,7 +72,6 @@
           </div>
         </div>
       </div>
-    </section>
 
     <div class="footer-dark">
       <footer>

@@ -125,9 +125,9 @@
     <script src="script.js"></script>
   </head>
 
-  <body class="bg-white">
+  <body class="bg-light">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
         <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -151,8 +151,10 @@
         <!-- Section Title -->
         <div class="row justify-content-center text-center">
           <div class="col md-6">
-            <h2 class="display-4 font-weight-bold">Sign up for our weekly newsletter!</h2>
-            <p>Text explaining what the newsletter is for here.</p>
+            <h2 class="display-4 font-weight-bold">Sign up for our weekly newsletter!</h2><br>
+            <p>Want updates to when our next survey will happen? Would you like to know our methods in using your data? 
+              Sign up for our weekly newsletter here!
+            </p>
             <hr />
           </div>
         </div>

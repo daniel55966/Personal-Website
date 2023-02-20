@@ -68,17 +68,12 @@
 
       //Execute SQL Statement on server
       $stmt->execute();
-   }
+    }
 
     //Create thank you message
     $_SESSION['message'] = '<p class="font-weight-bold">Thank you
     for your submission!</p><p class="font-weight-light">Your
     request has been sent.</p>';
-    
-    //Redirect
-    //header('Location: ' . $_SERVER['REQUEST_URI']);
-    //exit;
-
     } catch (PDOException $error) {
       
       //Return error code if one is created
@@ -88,15 +83,10 @@
       $_SESSION['complete'] = true;
       var_dump($error);
       exit;
-
-      //Redirect
-      //header('Location: ' . $_SERVER['REQUEST_URI']);
-      //exit;
     }
 
     $conn = null;
   } 
-
 ?>
 
 <!DOCTYPE html>
@@ -117,7 +107,7 @@
 
   <body class="bg-light">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
         <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -138,9 +128,16 @@
 
       <section class="container survey-section">
         <div class="row align-items-center justify-content-center text-center">
-          <h2 class="py-3">Coke vs Pepsi Comparison Survey</h2>
+          <h2 class="py-2">Coke vs Pepsi Comparison Survey</h2>
         </div>
       </section>
+
+      <div class="container">
+        <div class="text-center">
+          <img src="https://vectorified.com/images/pepsi-icon-31.png" alt=" Pepsi and Coke icons on two soda cups" class="rounded">
+        </div>
+      </div>
+
       <section class="survey-section container">
         <div class="row align-items-center justify-content-center text-left
         py-5">

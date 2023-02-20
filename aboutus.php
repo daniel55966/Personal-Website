@@ -16,9 +16,9 @@
     <script src="script.js"></script>
   </head>
 
-  <body class="bg-white">
+  <body class="bg-light">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
         <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
