@@ -20,7 +20,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
-        <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
+      <a href="/index.php" class="navbar-brand"><img class="img-responsive" src="Images\slanalytics.png" alt="Salt Lake Analytics Logo" height="65"></a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -41,8 +41,12 @@
       <div class="container py-5">
         <div class="row h-100 align-items-center py-5">
           <div class="col-lg-6">
-            <h1 class="display-4">About us page</h1>
-            <p class="lead text-muted mb-0">Create a minimal about us page using Bootstrap 4.</p>
+            <h1 class="display-4">About Us</h1>
+            <p class="lead text-muted mb-0">We're a company that <i>loves</i> data and how it works in the world of business. 
+            We create online surveys for our customers to participate in, and the data we gather from the surveys is used in our 
+            analyses as we strive to connect them with products and services that match their interests. Although we can't reveal 
+            all of our methodologies, we aim to be as transparent about what we do with your data as possible.
+            </p>
           </div>
         </div>
       </div>
@@ -53,7 +57,7 @@
         <div class="row mb-4">
           <div class="col-lg-5">
             <h2 class="display-4 font-weight-light">Our team</h2>
-            <p class="font-italic text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+            <p class="font-italic text-muted">Meet our wonderful employees! You can find out more about them on their social media pages.</p>
           </div>
         </div>
 
@@ -123,7 +127,7 @@
             <h3>Services</h3>
             <ul>
               <li><a href="/survey.php">Surveys</a></li>
-              <li><a href="#">Analytics</a></li>
+              <li><a href="/results.php">Analytics</a></li>
             </ul>
             </div>
             <div class="col-sm-6 col-md-3 item">
@@ -134,8 +138,8 @@
               </ul>
             </div>
             <div class="col-md-6 item text">
-              <h3>Company Name</h3>
-              <p>Some text about our company here.</p>
+              <h3>Salt Lake Analytics</h3>
+              <p>We aim to connect our customers with the products and services they deserve.</p>
             </div>
             <div class="col item social">
               <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>

@@ -101,7 +101,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
-        <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
+        <a href="/index.php" class="navbar-brand"><img class="img-responsive" src="Images\slanalytics.png" alt="Salt Lake Analytics Logo" height="65"></a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -163,7 +163,7 @@
             <h3>Services</h3>
             <ul>
               <li><a href="/survey.php">Surveys</a></li>
-              <li><a href="#">Analytics</a></li>
+              <li><a href="/results.php">Analytics</a></li>
             </ul>
             </div>
             <div class="col-sm-6 col-md-3 item">
@@ -174,8 +174,8 @@
               </ul>
             </div>
             <div class="col-md-6 item text">
-              <h3>Company Name</h3>
-              <p>Some text about our company here.</p>
+              <h3>Salt Lake Analytics</h3>
+              <p>We aim to connect our customers with the products and services they deserve.</p>
             </div>
             <div class="col item social">
               <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>

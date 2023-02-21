@@ -18,7 +18,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
-        <a href="/index.php" class="navbar-brand">Salt Lake Analytics</a>
+        <a href="/index.php" class="navbar-brand"><img class="img-responsive" src="Images\slanalytics.png" alt="Salt Lake Analytics Logo" height="65"></a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,10 +38,11 @@
     <div class="container-fluid pt-5 intro">
       <div class="row align-items-center justify-content-center text-center">
         <div class="col-lg-8">
-          <h2 class="display-2 font-weight-bold">Ever wonder what people are thinking?</h1>
+          <h2 class="display-2 font-weight-bold">Are you interested in finding new and interesting products?</h1>
           <hr class="my-5" />
-          <p class="font-weight-light">Let's find out, shall we? Take our survey about Coke vs Pepsi 
-          so we can find out how cool you are (Hint: You're cool regardless).</p>
+          <p class="font-weight-light">Take one of our surveys so we can match you with something you may be missing in your life! 
+            This week's survey compares a rivalry that has existed since the 1970s: Coca-Cola vs Pepsi.
+          </p>
           <a href="/survey.php" class="btn btn-primary" role="button">Take Survey</a>
         </div>
       </div>
@@ -51,13 +52,13 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="https://images.unsplash.com/photo-1675510183229-c50371163c19?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Typing on laptop">
+            <img src="/Images/kajetan-sumila-61FWNkexYVc-unsplash.jpg" class="d-block w-100" alt="Typing on laptop">
           </div>
           <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1674726253061-baba094ad8c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Man working on a tool rack in a garage">
+            <img src="/Images/anton-savinov-KOl7hA0nbos-unsplash.jpg" class="d-block w-100" alt="Man working on a tool rack in a garage">
           </div>
           <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1674654200851-294062f03fdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" class="d-block w-100" alt="Man working on a laptop">
+            <img src="/Images/phong-ph-m-6Lggcebsp84-unsplash.jpg" class="d-block w-100" alt="Man working on a laptop">
           </div>
         </div>
       </div>
@@ -67,7 +68,7 @@
         <div class="row align-items-center justify-content-center text-center h-100">
           <div class="col-lg-6 my-3">
             <h3 class="font-weight-bold">Little Bit About Us</h3>
-            <p class="font-weight-light">We take survey data and use MAGIC on it to know stuff. Learn more here!</p>
+            <p class="font-weight-light">We offer surveys to our customers so they can discover new products that suit their interests. Learn more here!</p>
             <a href="/aboutus.php" class="btn btn-secondary" role="button">About Us</a>
           </div>
         </div>
@@ -81,7 +82,7 @@
             <h3>Services</h3>
             <ul>
               <li><a href="/survey.php">Surveys</a></li>
-              <li><a href="#">Analytics</a></li>
+              <li><a href="/results.php">Analytics</a></li>
             </ul>
             </div>
             <div class="col-sm-6 col-md-3 item">
@@ -92,8 +93,8 @@
               </ul>
             </div>
             <div class="col-md-6 item text">
-              <h3>Company Name</h3>
-              <p>Some text about our company here.</p>
+              <h3>Salt Lake Analytics</h3>
+              <p>We aim to connect our customers with the products and services they deserve.</p>
             </div>
             <div class="col item social">
               <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
