@@ -20,7 +20,7 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
       <div class="container-fluid">
-      <a href="/index.php" class="navbar-brand"><img class="img-responsive" src="Images\slanalytics.png" alt="Salt Lake Analytics Logo" height="65"></a>
+      <a href="/index.php" class="navbar-brand"><img class="img-responsive" src="/Images/slanalyticsmountain.png" alt="Salt Lake Analytics Logo" height="65"></a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
