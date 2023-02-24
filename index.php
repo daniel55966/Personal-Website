@@ -40,7 +40,8 @@
         <div class="col-lg-8">
           <h2 class="display-2 font-weight-bold">Are you interested in finding new and interesting products?</h1>
           <hr class="my-5" />
-          <p class="font-weight-light">Take one of our surveys so we can match you with something you may be missing in your life! 
+          <p class="font-weight-light">Here at Salt Lake Analytics, we aim to match <i>you</i> with products that match your interests. 
+            Take one of our surveys so we can match you with something you may be missing in your life! 
             This week's survey compares a rivalry that has existed since the 1970s: Coca-Cola vs Pepsi.
           </p>
           <a href="/survey.php" class="btn btn-primary" role="button">Take Survey</a>
