@@ -70,10 +70,9 @@
       $stmt->execute();
     }
 
-    //Create thank you message
-    $_SESSION['message'] = '<p class="font-weight-bold">Thank you
-    for your submission!</p><p class="font-weight-light">Your
-    request has been sent.</p>';
+    //Create thank you message on separate page
+    header('Location: thankyou.php');
+    exit;
     } catch (PDOException $error) {
       
       //Return error code if one is created
@@ -143,7 +142,7 @@
         py-2">
         <div class="row col-5">
           <h4 class="fw-bold text-center mt-3"></h4>
-            <form class=" bg-white px-4 py-3" action="survey.php" method="post">
+            <form class=" bg-white px-4 py-3" action="survey.php" method="post" id="survey-form">
 
               <?php 
               $questions = [
@@ -251,19 +250,7 @@
               }
               ?>
 
-              <input type="submit" class="btn btn-success" id="open-modal"></button>
-              <div id="survey-modal" class="survey-modal">
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <p>Thank you for submitting the survey!</p>
-                </div>
-              </div>
-            </form>
-            <div class="text-end">
-            </div> 
-
-          </div>        
-        </div>
+      <input type="submit" value="Submit" class="btn btn-success">
     </section>
 
     <div class="footer-dark">

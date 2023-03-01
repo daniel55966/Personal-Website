@@ -41,7 +41,7 @@ p {
 }
 
 /* Survey Modal */
-.survey-modal {
+/*.survey-modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -74,7 +74,7 @@ p {
     color: black;
     text-decoration: none;
     cursor: pointer;
-  }
+  }*/
   
   .coke-pepsi-image {
     width: 100px;
