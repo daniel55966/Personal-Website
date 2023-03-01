@@ -69,6 +69,7 @@
               <ul class="social mb-0 list-inline mt-3">
                 <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.twitter.com" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fa fa-instagram"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fa fa-linkedin"></i></a></li>
               </ul>
             </div>
@@ -82,6 +83,7 @@
               <ul class="social mb-0 list-inline mt-3">
                 <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.twitter.com" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fa fa-instagram"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fa fa-linkedin"></i></a></li>
               </ul>
             </div>
@@ -95,6 +97,7 @@
               <ul class="social mb-0 list-inline mt-3">
                 <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.twitter.com" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fa fa-instagram"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fa fa-linkedin"></i></a></li>
               </ul>
             </div>
@@ -108,6 +111,7 @@
               <ul class="social mb-0 list-inline mt-3">
                 <li class="list-inline-item"><a href="https://www.facebook.com" class="social-link"><i class="fa fa-facebook-f"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.twitter.com" class="social-link"><i class="fa fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="https://www.instagram.com" class="social-link"><i class="fa fa-instagram"></i></a></li>
                 <li class="list-inline-item"><a href="https://www.linkedin.com" class="social-link"><i class="fa fa-linkedin"></i></a></li>
               </ul>
             </div>
@@ -144,6 +148,7 @@
             <div class="col item social">
               <a href="https://www.facebook.com"><i class="fa fa-facebook"></i></a>
               <a href="https://www.twitter.com"><i class="fa fa-twitter"></i></a>
+              <a href="https://www.instagram.com"><i class="fa fa-instagram"></i></a>
               <a href="https://www.linkedin.com"><i class="fa fa-linkedin"></i></a>
             </div>
           </div>
