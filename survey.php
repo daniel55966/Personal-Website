@@ -3,14 +3,27 @@
   ini_set('display_startup_errors', '1');
   error_reporting(E_ALL);
 
+  ob_start();
+
   if (!isset($_SESSION)) {
     session_start();
   }
 
-  $answerErr = "";
+  $answerErr = 'Please answer all questions in the survey';
   $question_numbers = $_POST['question_numbers'] ?? [];
   $answers = $_POST['answers'] ?? [];
   $formErr = false;
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $formErr = count($_POST['answers']) !== 10;
+    foreach ($_POST['answers'] ?? [] as $answer) {
+      $answer = cleanInput($answer);
+      if (empty($answer)) {
+        $formErr = true;
+        break;
+      }
+    }
+  }
 
   // Clean and sanitize form inputs
   function cleanInput($data) {
@@ -20,7 +33,7 @@
     return $data;
   }
   
-  if ($_SERVER["REQUEST_METHOD"] == "POST" && !$formErr)  {  
+  if ($_SERVER["REQUEST_METHOD"] == "POST" && !$formErr)  {
     $hostname = "php-mysql-exercisedb.slccwebdev.com";
     $username = "phpmysqlexercise";
     $password = "mysqlexercise";
@@ -40,7 +53,7 @@
 
     $user_id = time();
 
-    foreach ($_POST['answers'] as $question_number => $answer) {
+    foreach ($_POST['answers'] ?? [] as $question_number => $answer) {
       //Variable containing SQL command
       $sql = "INSERT INTO da_survey_results (
           question_number,
@@ -128,6 +141,7 @@
       <section class="container survey-section">
         <div class="row align-items-center justify-content-center text-center">
           <h2 class="py-2">Coke vs Pepsi Comparison Survey</h2>
+          <p style="font-weight: bold; color: red;"><?= $answerErr ?></p>
         </div>
       </section>
 
@@ -143,7 +157,7 @@
         <div class="row col-5">
           <h4 class="fw-bold text-center mt-3"></h4>
             <form class=" bg-white px-4 py-3" action="survey.php" method="post" id="survey-form">
-
+              
               <?php 
               $questions = [
                 [
