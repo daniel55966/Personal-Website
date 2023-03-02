@@ -9,7 +9,7 @@
     session_start();
   }
 
-  $answerErr = 'Please answer all questions in the survey';
+  $answerErr = '';
   $question_numbers = $_POST['question_numbers'] ?? [];
   $answers = $_POST['answers'] ?? [];
   $formErr = false;
@@ -99,6 +99,10 @@
 
     $conn = null;
   } 
+  
+  if ($formErr) {
+    $answerErr = "Please answer all questions in the survey";
+  }
 ?>
 
 <!DOCTYPE html>

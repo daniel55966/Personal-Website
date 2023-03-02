@@ -50,7 +50,7 @@
     </div>
 
     <div class="container">
-      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel">
+      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="7500">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="/Images/kajetan-sumila-61FWNkexYVc-unsplash.jpg" class="d-block w-100" alt="Typing on laptop">
