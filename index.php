@@ -44,22 +44,22 @@
             Take one of our surveys so we can match you with something you may be missing in your life! 
             This week's survey compares a rivalry that has existed since the 1970s: Coca-Cola vs Pepsi.
           </p>
-          <a href="/survey.php" class="btn btn-primary" role="button">Take Survey</a>
+          <a href="/survey.php" class="btn btn-primary" role="button">Take Survey</a><hr class="my-3" />
         </div>
       </div>
-    </div>
+    </div><br><br>
 
     <div class="container">
-      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="7500">
+      <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade my-5 py-5" data-bs-ride="carousel" data-bs-interval="7500">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="/Images/kajetan-sumila-61FWNkexYVc-unsplash.jpg" class="d-block w-100" alt="Typing on laptop">
+            <img src="/Images/kajetan-sumila-61FWNkexYVc-unsplash.jpg" class="d-block w-100 rounded" alt="Typing on laptop">
           </div>
           <div class="carousel-item">
-            <img src="/Images/anton-savinov-KOl7hA0nbos-unsplash.jpg" class="d-block w-100" alt="Man working on a tool rack in a garage">
+            <img src="/Images/anton-savinov-KOl7hA0nbos-unsplash.jpg" class="d-block w-100 rounded" alt="Man working on a tool rack in a garage">
           </div>
           <div class="carousel-item">
-            <img src="/Images/phong-ph-m-6Lggcebsp84-unsplash.jpg" class="d-block w-100" alt="Man working on a laptop">
+            <img src="/Images/phong-ph-m-6Lggcebsp84-unsplash.jpg" class="d-block w-100 rounded" alt="Man working on a laptop">
           </div>
         </div>
       </div>
