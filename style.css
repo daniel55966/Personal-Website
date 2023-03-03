@@ -35,6 +35,11 @@ p {
 }
 
 /* Survey Sections */
+.survey-image {
+  width: 100%;
+  height: auto;
+}
+
 .survey-section {
     padding: 10px 10px;
     margin: 30px;

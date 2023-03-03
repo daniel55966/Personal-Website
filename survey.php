@@ -151,7 +151,7 @@
 
       <div class="container">
         <div class="text-center">
-          <img src="/Images/pepsi-icon-31.png" alt=" Pepsi and Coke icons on two soda cups" class="rounded">
+          <img src="/Images/pepsi-icon-31.png" alt=" Pepsi and Coke icons on two soda cups" class="survey-image rounded">
         </div>
       </div>
 
@@ -176,7 +176,7 @@
 
                 [
                   'type' => 'coke-pepsi',
-                  'question' => 'Which brand do you think has the better advertisements?',
+                  'question' => 'Which brand do you think has the better ads?',
                 ],
 
                 [

@@ -53,13 +53,13 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade my-5 py-5" data-bs-ride="carousel" data-bs-interval="7500">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="/Images/kajetan-sumila-61FWNkexYVc-unsplash.jpg" class="d-block w-100 rounded" alt="Typing on laptop">
+            <img src="/Images/kajetan-sumila-61FWNkexYVc-unsplash.jpg" class="d-block w-100 rounded img-fluid" alt="Typing on laptop">
           </div>
           <div class="carousel-item">
-            <img src="/Images/anton-savinov-KOl7hA0nbos-unsplash.jpg" class="d-block w-100 rounded" alt="Man working on a tool rack in a garage">
+            <img src="/Images/anton-savinov-KOl7hA0nbos-unsplash.jpg" class="d-block w-100 rounded img-fluid" alt="Man working on a tool rack in a garage">
           </div>
           <div class="carousel-item">
-            <img src="/Images/phong-ph-m-6Lggcebsp84-unsplash.jpg" class="d-block w-100 rounded" alt="Man working on a laptop">
+            <img src="/Images/phong-ph-m-6Lggcebsp84-unsplash.jpg" class="d-block w-100 rounded img-fluid" alt="Man working on a laptop">
           </div>
         </div>
       </div>
