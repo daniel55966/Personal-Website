@@ -40,6 +40,12 @@
         <div class="col-lg-8">
           <h2 class="display-2 font-weight-bold">Are you interested in finding new and interesting products?</h1>
           <hr class="my-5" />
+          <p class="font-weight-light">This website was built as my final project for the Web Development Certificate program 
+            through Salt Lake Community College. I was tasked to build a survey site for a fake analytics company using HTML, CSS, 
+            Bootstrap, Javascript, PHP, and MySQL. The company logo and name are my creations and have nothing to do with any known 
+            businesses. The repository for this project is available for sharing upon request. Below is how I've introduced the website 
+            to a potential customer, and the links in the navbar and throughout the home page go to the rest of the site.
+          </p><br>
           <p class="font-weight-light">Here at Salt Lake Analytics, we aim to match <i>you</i> with products that match your interests. 
             Take one of our surveys so we can match you with something you may be missing in your life! 
             This week's survey compares a rivalry that has existed since the 1970s: Coca-Cola vs Pepsi.
