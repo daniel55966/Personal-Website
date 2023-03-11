@@ -44,7 +44,8 @@
             through Salt Lake Community College. I was tasked to build a survey site for a fake analytics company using HTML, CSS, 
             Bootstrap, Javascript, PHP, and MySQL. The company logo and name are my creations and have nothing to do with any known 
             businesses. The repository for this project is available for sharing upon request. Below is how I've introduced the website 
-            to a potential customer, and the links in the navbar and throughout the home page go to the rest of the site.
+            to a potential customer, and the links in the navbar and throughout the home page go to the rest of the site. To access the 
+            table on the results page, the username is 'admin' and the password is 'secret'.
           </p><br>
           <p class="font-weight-light">Here at Salt Lake Analytics, we aim to match <i>you</i> with products that match your interests. 
             Take one of our surveys so we can match you with something you may be missing in your life! 
