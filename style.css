@@ -165,3 +165,96 @@ p {
     min-height: 100%;
     position: relative;
 }
+
+/* CSS from the portfolio site */
+/* Header */
+.mainHeader {
+  height: 100vh;
+  min-height: 40em;
+  background-image: url("https://images.unsplash.com/photo-1625472603525-6b77bfed6165?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1498&q=80");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+} 
+
+/* About Me */
+.aboutMe {
+  height: 50vh;
+  min-height: 40em;
+  background-image: url("https://images.unsplash.com/photo-1662672555433-c135dc3f0ec4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHx0b3BpYy1mZWVkfDIxfDZzTVZqVExTa2VRfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Dice Roller */
+.dice-roller {
+  background-color: maroon;
+  color: white;
+
+}
+
+.dice-number, .dice, .dice-results {
+  margin: 10px;
+}
+
+.dnd-button {
+  display: inline-block;
+  background-color: lightgrey;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.dnd-body {
+  background-image: url("https://images.unsplash.com/photo-1506462313968-6a1f37574ec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+.center-column {
+  background-color: rgba(255, 255, 255, 0.8);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Calculator */
+.calculator {
+  padding: 10px;
+  border-radius: 1em;
+  height: 380px;
+  width: 400px;
+  margin: auto;
+  background-color: silver;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.25) 0px 5px 5px;
+}
+
+.display-box {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: white;
+  border: solid black 0.5px;
+  color: black;
+  border-radius: 5px;
+  width: 100%;
+  height: 65%;
+}
+
+input[type=button] {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: white;
+  border: solid black 0.5px;
+  width: 100%;
+  border-radius: 5px;
+  height: 70%;
+  outline: none;
+}
+
+input:active[type=button] {
+  background: #e5e5e5;
+  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
+  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
+  box-shadow: inset 0px 0px 5px #c1c1c1;
+}

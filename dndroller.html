@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>  
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
+        <title>Dice Roller</title>
+    </head>
+
+    <body class="dnd-body">
+        <div class="container-fluid pt-5">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col"></div> 
+                <div class="col center-column">
+                    <h2 class="dice-roller">Dice Roller</h2>
+                    <div class="dice-number">
+                        <label for="dice-number">Number of dice:</label>
+                        <input type="number" id="dice-number" name="dice-number" min="1">
+                    </div>
+                    <div class="dice">
+                        <label for="dice">Choose a Dice to roll:</label>
+                        <select name="dice" id="dice">
+                            <option value="4">d4</option>
+                            <option value="6">d6</option>
+                            <option value="8">d8</option>
+                            <option value="10">d10</option>
+                            <option value="12">d12</option>
+                            <option value="20">d20</option>
+                            <option value="100">d100</option>
+                        </select>
+                    </div>
+                    <div class="dice-results">
+                        <p>Total:</p>
+                        <p id="demo">0</p>
+                    </div>
+                    <button class="dnd-button" onclick="clickEvent(document.getElementById('dice-number').value, document.getElementById('dice').value)">Roll</button> 
+                    </div>
+                <div class="col"></div>
+            </div>
+        </div>
+    </body>
+</html>
