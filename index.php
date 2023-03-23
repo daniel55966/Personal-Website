@@ -150,7 +150,7 @@
             <a href="#about" class="btn btn-primary btn-large mt-3" role="button">About Me</a>
             <a href="#portfolio" class="btn btn-primary btn-large mt-3" role="button">Portfolio</a>
             <a href="#contact" class="btn btn-primary btn-large mt-3" role="button">Contact Me</a>
-            <a href="/project.php" class="btn btn-primary btn-large mt-3" role="button">Final Project</a>
+            <a href="/project.php" class="btn btn-primary btn-large mt-3" role="button" target="_blank">Final Project</a>
           </div>
         </div>
       </div>
@@ -166,26 +166,10 @@
           <h2 class="font-weight-bold">Daniel Anderson</h2>
           <hr class="my-4" />
           <p class="font-weight-light mx-5">I am a student at Salt Lake Community College. I'm 
-            working towards gaining skills to enter a new field of work.
-          </p>
-          <p>
-          <?php
-            $skillsArray = array("HTML/CSS", "Javascript", "Community Moderator",
-            "Small Team Leader");
-            
-            function newList($newArray) {
-              echo "My skills include: <ul>";
-            
-              foreach($newArray as $x) {
-                echo "<li>" . $x . "</li>";
-                echo "<br>";
-              }
-            
-            echo "</ul>";
-            }
-            
-            echo newList($skillsArray);          
-          ?>
+            working towards gaining skills to enter a new field of work. I have experience in HTML5, 
+            CSS3/Bootstrap, Javascript, PHP, and MySQL. I have also been a leader for a small team (3-5 people) 
+            and a co-leader of a larger team (10-20 people), and am currently a moderator for a music 
+            community I'm a part of. I can work hard and am willing to learn new skills in my free time.
           </p>
           <a class="btn btn-primary btn-lg mt-3” role="button"
           href="#home">Home</a>
