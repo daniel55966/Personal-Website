@@ -38,7 +38,7 @@
         <div class="container-fluid pt-5 intro">
             <div class="row align-items-center justify-content-center text-center">
                 <div class="col-lg-8">
-                    <h2>Thank you for filling out our survey!</h2>
+                    <h2>Thank you for filling out our survey! You may now close this window.</h2>
                 </div>
             </div>
         </div>
