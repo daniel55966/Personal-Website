@@ -178,17 +178,6 @@ p {
   background-attachment: scroll;
 } 
 
-/* About Me */
-.aboutMe {
-  height: 50vh;
-  min-height: 40em;
-  background-image: url("https://images.unsplash.com/photo-1615254295718-dd6994353b5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1529&q=80");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
-}
-
 /* Dice Roller */
 .dice-roller {
   background-color: maroon;

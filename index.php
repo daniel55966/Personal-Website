@@ -139,15 +139,14 @@
       <div class="container-fluid h-100">
         <div class="row h-100 align-items-center justify-content-center text-center text-white">
           <div class="col-lg-8">
-            <h1 class="display-1 font-weight-bold">Daniel's <span class="font-weight-light">Portfolio Website</span></h1>
+            <h1 class="display-1 font-weight-bold">Daniel Anderson</span></h1>
             <hr class="bg-white my-5" />
-            <p class="font-weight-light">A portfolio site meant to showcase the web development 
-              practices and lessons I have learned while taking the Web Dev Certificate Course through 
-              Salt Lake Community College. The Final Project link goes to the final project I did for 
-              the certificate course, with an explanation for it on its main page. The portfolio section 
-              below has a few projects that I did in my free time.
+            <p class="font-weight-light mx-5">I am a student at Salt Lake Community College. I'm 
+            working towards gaining skills to enter a new field of work. I have experience in HTML5, 
+            CSS3/Bootstrap, Javascript, PHP, and MySQL. I have also been a leader for a small team (3-5 people) 
+            and a co-leader of a larger team (10-20 people), and am currently a moderator for a music 
+            community I'm a part of. I can work hard and am willing to learn new skills in my free time.
             </p>
-            <a href="#about" class="btn btn-primary btn-large mt-3" role="button">About Me</a>
             <a href="#portfolio" class="btn btn-primary btn-large mt-3" role="button">Portfolio</a>
             <a href="#contact" class="btn btn-primary btn-large mt-3" role="button">Contact Me</a>
             <a href="/project.php" class="btn btn-primary btn-large mt-3" role="button" target="_blank">Final Project</a>
@@ -155,33 +154,6 @@
         </div>
       </div>
     </header>
-
-  <!-- About -->
-  <section class="aboutMe" id="about">
-    <div class="container">
-      <div class="row align-items-center justify-content-center text-center
-      py-5">
-        <!-- About Me Summary -->
-        <div class="col-lg-8 my-3">
-          <h2 class="font-weight-bold">Daniel Anderson</h2>
-          <hr class="my-4" />
-          <p class="font-weight-light mx-5">I am a student at Salt Lake Community College. I'm 
-            working towards gaining skills to enter a new field of work. I have experience in HTML5, 
-            CSS3/Bootstrap, Javascript, PHP, and MySQL. I have also been a leader for a small team (3-5 people) 
-            and a co-leader of a larger team (10-20 people), and am currently a moderator for a music 
-            community I'm a part of. I can work hard and am willing to learn new skills in my free time.
-          </p>
-          <a class="btn btn-primary btn-lg mt-3” role="button"
-          href="#home">Home</a>
-          <a class="btn btn-primary btn-lg mt-3” role="button"
-          href="#portfolio">Portfolio</a>
-          <a class="btn btn-primary btn-lg mt-3” role="button"
-          href="#contact">Contact Me</a>
-          
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Portfolio -->
   <section id="portfolio" class="bg-primary">
