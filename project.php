@@ -59,7 +59,7 @@
           <a href="/survey.php" class="btn btn-primary" role="button">Take Survey</a><hr class="my-3" />
         </div>
       </div>
-    </div><br><br>
+    </div><br><br><br><br><br><br><br>
 
     <div class="container">
       <div id="carouselExampleSlidesOnly" class="carousel slide carousel-fade my-5 py-5" data-bs-ride="carousel" data-bs-interval="7500">
