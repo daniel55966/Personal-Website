@@ -47,6 +47,11 @@
             to a potential customer, and the links in the navbar and throughout the home page go to the rest of the site. To access the 
             table on the results page, the username is 'admin' and the password is 'secret'.
           </p><br>
+          <p>The Survey and Results pages do function properly. However, because this project was done for school, the database is currently
+            only functional on their hosting server, not the personal one this site's currently on. Fully functional versions of the survey page 
+            can be found <a href="http://www.danielanderson.slccwebdev.com/survey.php">here</a> and the results page can be found 
+            <a href="http://www.danielanderson.slccwebdev.com/results.php">here</a>.
+          </p><br>
           <p class="font-weight-light">Here at Salt Lake Analytics, we aim to match <i>you</i> with products that match your interests. 
             Take one of our surveys so we can match you with something you may be missing in your life! 
             This week's survey compares a rivalry that has existed since the 1970s: Coca-Cola vs Pepsi.
