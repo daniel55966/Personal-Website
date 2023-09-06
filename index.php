@@ -206,12 +206,12 @@
         <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
             <div class="card-body">
-              <h3 class="card-title">Calculator</h3>
+              <h3 class="card-title">UX/UI Design</h3>
               <hr class="bg-primary" />
-              <p class="card-text">A simple 10-digit calculator.</p>
+              <p class="card-text">A design for a Mental Health Outreach app created by my team for the final project of our UX/UI Development Certificate Program.</p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/calculator.html" target="_blank">Calculator</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://www.figma.com/file/XIFStCaTBs5NG7316R34xh/Help!-APP?type=design&node-id=0%3A1&mode=design&t=0wooxs9LrKTRFLoW-1" target="_blank">HELP! App Design</a>
             </div>
           </div>
         </div>
