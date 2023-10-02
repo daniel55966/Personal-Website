@@ -173,7 +173,7 @@
               <h3 class="card-title">Survey Website</h3>
               <hr class="bg-primary" />
               <p class="card-text">A survey website built to show my skills in HTML, 
-              CSS, Javascript, PHP, and MySQL
+              CSS, Javascript, PHP, and MySQL.
               </p>
             </div>
             <div class="card-footer">
