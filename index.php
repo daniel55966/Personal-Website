@@ -127,6 +127,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>  
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -148,9 +149,7 @@
             community I'm a part of. I can work hard and am willing to learn new skills in my free time.
             </p>
             <a href="#portfolio" class="btn btn-primary btn-large mt-3" role="button">Portfolio</a>
-            <a href="#contact" class="btn btn-primary btn-large mt-3" role="button">Contact Me</a>
-            <a href="/project.php" class="btn btn-primary btn-large mt-3" role="button" target="_blank">Final Project</a>
-          </div>
+            <a href="#contact" class="btn btn-primary btn-large mt-3" role="button">Contact Me</a>          </div>
         </div>
       </div>
     </header>
@@ -167,6 +166,23 @@
       </div>
       <!-- Portfolio Items Row Start-->
       <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Survey Website</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A survey website built to show my skills in HTML, 
+              CSS, Javascript, PHP, and MySQL
+              </p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/project.php" target="_blank">Survey Website</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
         <!-- Portfolio Item -->
         <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
@@ -331,20 +347,37 @@
   ?>
 
   <!-- Link to Data Table -->
-  <div class="row align-items-center justify-content-center text-center
+  <!-- <div class="row align-items-center justify-content-center text-center
       py-5">
     <div class="col-lg-8 my-3">
         <a href="/sqlexercise.php" class="btn btn-primary btn-large mt-3" role="button" target="_blank">Data Table</a>
     </div>
+  </div> -->
+
+  <footer class="bg-dark text-center text-white">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/daniel-anderson-b8315b249/" target="_blank" role="button"
+        ><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/daniel55966" target="_blank" role="button"
+        ><i class="fa fa-github" aria-hidden="true"></i></a>
+    </section>
+    <!-- Section: Social media -->
   </div>
+  <!-- Grid container -->
 
-  <!-- Footer -->
-  <footer class="py-4 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Daniel's Personal Website 2023</p>
-    </div>
-  </footer>
+  <!-- Copyright -->
+  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+    © 2023 Copyright:
+    <a class="text-white">Daniel Anderson</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 
-    
   </body>
 </html>
