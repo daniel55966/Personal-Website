@@ -18,19 +18,6 @@ function validateForm() {
     }
 }
 
-// Array Lesson: JS Week 3
-let referenceArray = [["Reference 1", " This is my reference for Daniel"], ["Reference 2", " This is my reference for Daniel"], ["Reference 3", " This is my reference for Daniel"]];
-
-let myVar = "My references are: <ol>";
-
-for (let i = 0; i < referenceArray.length; i++){
-    myVar += "<li>" + referenceArray[i] + "</li>"
-}
-
-myVar += "</ol>";
-
-document.getElementById("References").innerHTML = myVar;
-
 // Dice Roller Function
 var parameter;
 var randomNumber;
@@ -71,3 +58,88 @@ function calculate() {
     document.getElementById("result").value = y;
 }
 
+// To Do List Class
+const todoObjectList = [];
+
+class ToDo_Class {
+    constructor(item){
+        this.ulElement = item;
+    }
+
+    add() {
+        const todoInput = document.querySelector("#myInput").value;
+        if (todoInput == "") {
+            alert("You did not enter an item!")
+        } else {
+            const todoObject = {
+                id : todoObjectList.length,
+                todoText : todoInput,
+                isDone : false,
+            }
+
+        todoObjectList.unshift(todoObject);
+        this.display();
+        document.querySelector("#myInput").value = '';
+
+        }
+    }
+
+    done_undone(x) {
+        const selectedTodoIndex = todoObjectList.findIndex((item)=> item.id == x);
+        console.log(todoObjectList[selectedTodoIndex].isDone);
+        todoObjectList[selectedTodoIndex].isDone == false ? todoObjectList[
+        selectedTodoIndex].isDone = true : todoObjectList[selectedTodoIndex].isDone = false;
+        this.display();
+    }
+
+    deleteElement(z) {
+        const selectedDelIndex = todoObjectList.findIndex((item)=> item.id == z);
+
+        todoObjectList.splice(selectedDelIndex, 1);
+        
+        this.display();
+    }
+
+    display() {
+        this.ulElement.innerHTML = "";
+
+        todoObjectList.forEach((object_item) => {
+
+            const liElement = document.createElement("li");
+            const delBtn = document.createElement("i");
+
+            liElement.innerText = object_item.todoText;
+            liElement.setAttribute("data-id", object_item.id);
+
+            delBtn.setAttribute("data-id", object_item.id);
+            delBtn.classList.add("far", "fa-trash-alt");
+
+            liElement.appendChild(delBtn);
+
+            delBtn.addEventListener("click", function(e) {
+                const deleteId = e.target.getAttribute("data-id");
+                myToDoList.deleteElement(deleteId);
+            })
+
+            liElement.addEventListener("click", function(e) {
+                const selectedId = e.target.getAttribute("data-id");
+                myToDoList.done_undone(selectedId);
+            })
+
+            if (object_item.isDone) {
+                liElement.classList.add("checked");
+            }
+
+            this.ulElement.appendChild(liElement);
+        })
+    }
+}
+
+// To Do List Main Program
+const listSection = document.querySelector('#myUL');
+
+myToDoList = new ToDo_Class(listSection);
+
+document.querySelector(".addBtn").addEventListener("click", function() {
+    myToDoList.add()
+})
