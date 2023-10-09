@@ -303,7 +303,7 @@
 			<div class="row justify-content-center">
 				<div class="col-6">
 					<!-- Contact Form Start -->
-					<form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?> method="POST" novalidate>
+					<form action="mailto:daniel55966@gmail.com" method="get" enctype="application/x-www-form-urlencoded">
 						
 						<!-- Name Field -->
 						<div class="form-group">
@@ -378,14 +378,6 @@
       session_unset();
     }
   ?>
-
-  <!-- Link to Data Table -->
-  <!-- <div class="row align-items-center justify-content-center text-center
-      py-5">
-    <div class="col-lg-8 my-3">
-        <a href="/sqlexercise.php" class="btn btn-primary btn-large mt-3" role="button" target="_blank">Data Table</a>
-    </div>
-  </div> -->
 
   <footer class="bg-dark text-center text-white">
   <!-- Grid container -->
