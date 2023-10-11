@@ -142,11 +142,9 @@
           <div class="col-lg-8">
             <h1 class="display-1 font-weight-bold">Daniel Anderson</span></h1>
             <hr class="bg-white my-5" />
-            <p class="font-weight-light mx-5">I am a student at Salt Lake Community College. I'm 
-            working towards gaining skills to enter a new field of work. I have experience in HTML5, 
-            CSS3/Bootstrap, Javascript, PHP, and MySQL. I have also been a leader for a small team (3-5 people) 
-            and a co-leader of a larger team (10-20 people), and am currently a moderator for a music 
-            community I'm a part of. I can work hard and am willing to learn new skills in my free time.
+            <p class="font-weight-light mx-5">I am an aspiring Junior Web Developer with experience in HTML5, 
+            CSS3/Bootstrap, Javascript, PHP, and MySQL. I also have experience with UX/UI design, using programs 
+            such as Figma, PhotoShop, and Trello. I can work hard and am willing to learn new skills in my free time.
             </p>
             <a href="#portfolio" class="btn btn-primary btn-large mt-3" role="button">Portfolio</a>
             <a href="#contact" class="btn btn-primary btn-large mt-3" role="button">Contact Me</a>          </div>
