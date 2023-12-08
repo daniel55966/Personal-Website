@@ -278,14 +278,15 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
               </p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/snake.html" target="_blank">To Do List</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="snake/snake.html" target="_blank">Snake Game</a>
             </div>
           </div>
         </div>
         <!-- Portfolio Item End -->
 
         <!-- Portfolio Item -->
-        <!-- Will Work On Later <div class="col mb-4">
+        <!-- Work on this later
+        <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
             <div class="card-body">
               <h3 class="card-title">Weather App</h3>
@@ -293,7 +294,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
               <p class="card-text">A simple weather app.</p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/weatherapp.html" target="_blank">Weather App</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="weatherapp/weatherapp.html" target="_blank">Weather App</a>
             </div>
           </div>
         </div> -->
