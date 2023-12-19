@@ -216,6 +216,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/tictactoe.html" target="_blank">Tic-Tac-Toe</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://codesandbox.io/p/sandbox/react-dev-forked-k636jw?file=%2Fsrc%2FApp.js" target="_blank">React Version</a>
             </div>
           </div>
         </div>
