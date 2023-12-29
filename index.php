@@ -264,6 +264,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/todolist.html" target="_blank">To Do List</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://github.com/daniel55966/To-Do-List-React" target="_blank">React Version (Github Pages)</a>
             </div>
           </div>
         </div>
