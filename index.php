@@ -295,7 +295,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
               <p class="card-text">A simple Guess The Number game built in React.</p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/Guess-Number/" target="_blank">Dice Roller</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/Guess-Number/" target="_blank">Guess The Number</a>
             </div>
           </div>
         </div>
