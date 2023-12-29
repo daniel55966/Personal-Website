@@ -287,6 +287,21 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         <!-- Portfolio Item End -->
 
         <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Guess The Number Game</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A simple Guess The Number game built in React.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/Guess-Number/" target="_blank">Dice Roller</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
+        <!-- Portfolio Item -->
         <!-- Work on this later
         <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
