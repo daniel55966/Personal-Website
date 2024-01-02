@@ -199,6 +199,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/dndroller.html" target="_blank">Dice Roller</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/Dice-Roller-React" target="_blank">React Version</a>
             </div>
           </div>
         </div>
