@@ -248,7 +248,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/calculator.html" target="_blank">Calculator</a>
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/Calculator-React" target="_blank">React Version</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://github.com/daniel55966/Calculator-React/tree/master/src" target="_blank">React Version Source Code</a>
             </div>
           </div>
         </div>
