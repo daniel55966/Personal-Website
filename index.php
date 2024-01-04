@@ -147,7 +147,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
           <h1 class="display-1 font-weight-bold">Daniel Anderson</span></h1>
           <hr class="bg-white my-5" />
           <p class="font-weight-light mx-5">I am an aspiring Junior Web Developer with experience in HTML5,
-            CSS3/Bootstrap, Javascript, PHP, and MySQL. I also have experience with UX/UI design, using programs
+            CSS3/Bootstrap, Javascript, PHP, MySQL, C#, and React. I also have experience with UX/UI design, using programs
             such as Figma, PhotoShop, and Trello. I can work hard and am willing to learn new skills in my free time.
           </p>
           <a href="#portfolio" class="btn btn-primary btn-large mt-3" role="button">Portfolio</a>
@@ -248,6 +248,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/calculator.html" target="_blank">Calculator</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/Calculator-React" target="_blank">React Version</a>
             </div>
           </div>
         </div>
