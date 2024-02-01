@@ -304,6 +304,22 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         <!-- Portfolio Item End -->
 
         <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">MovieLand</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A simple film app with search functionality and basic information about a wide variety of movies 
+              pulled from the Open Movie Database API using React.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/film-app" target="_blank">MovieLand</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
+        <!-- Portfolio Item -->
         <!-- Work on this later
         <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
