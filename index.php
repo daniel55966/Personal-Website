@@ -337,19 +337,18 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         <!-- Portfolio Item End -->
 
         <!-- Portfolio Item -->
-        <!-- Work on this later
         <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
             <div class="card-body">
               <h3 class="card-title">Weather App</h3>
               <hr class="bg-primary" />
-              <p class="card-text">A simple weather app.</p>
+              <p class="card-text">A simple weather app built using React.</p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="weatherapp/weatherapp.html" target="_blank">Weather App</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/weather-react" target="_blank">Weather App</a>
             </div>
           </div>
-        </div> -->
+        </div>
         <!-- Portfolio Item End -->
 
       </div>
