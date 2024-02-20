@@ -309,11 +309,28 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             <div class="card-body">
               <h3 class="card-title">MovieLand</h3>
               <hr class="bg-primary" />
-              <p class="card-text">A simple film app with search functionality and basic information about a wide variety of movies 
-              pulled from the Open Movie Database API using React.</p>
+              <p class="card-text">A simple film app with search functionality and basic information about a wide variety of movies
+                pulled from the Open Movie Database API using React.</p>
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/film-app" target="_blank">MovieLand</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">20 Simple React Projects</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">20 Simple React Projects, each in their own section 
+                and labeled on the page.
+              </p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/20-Simple-React-Projects/" target="_blank">20 Simple React Projects</a>
             </div>
           </div>
         </div>
