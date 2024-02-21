@@ -372,13 +372,13 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
                 <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
             <div class="card-body">
-              <h3 class="card-title">Recipe App</h3>
+              <h3 class="card-title">Shopping Cart App</h3>
               <hr class="bg-primary" />
               <p class="card-text">A Shopping Cart App built using React, Redux, and TailwindCSS.</p>
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/shopping-cart-app/" target="_blank">Shopping Cart App</a>
-            </div>
+            </div>  
           </div>
         </div>
         <!-- Portfolio Item End -->
