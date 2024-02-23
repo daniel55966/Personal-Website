@@ -357,7 +357,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             <div class="card-body">
               <h3 class="card-title">Recipe App</h3>
               <hr class="bg-primary" />
-              <p class="card-text">A simple recipe app built using React and TailwindCSS. 
+              <p class="card-text">A simple recipe app built using React and TailwindCSS.
                 Note: Recipes don't include directions, only ingredients and their quantity for now.
               </p>
             </div>
@@ -368,8 +368,8 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         </div>
         <!-- Portfolio Item End -->
 
-                <!-- Portfolio Item -->
-                <div class="col mb-4">
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
             <div class="card-body">
               <h3 class="card-title">Shopping Cart App</h3>
@@ -378,7 +378,22 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             </div>
             <div class="card-footer">
               <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/shopping-cart-app/" target="_blank">Shopping Cart App</a>
-            </div>  
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Expense Tracker</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A simple Expense Tracker built using React and Chakra UI.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/expense-tracker/" target="_blank">Expense Tracker</a>
+            </div>
           </div>
         </div>
         <!-- Portfolio Item End -->
