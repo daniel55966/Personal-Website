@@ -7,6 +7,12 @@ let dragStartY = undefined;
 
 let previousAnimationTimestamp = undefined;
 
+let numberOfPlayers = 1;
+let simulationMode = false;
+let simulationImpact = {};
+
+const blastHoleRadius = 18;
+
 // HTML References
 const canvas = document.getElementById("game");
 canvas.width = window.innerWidth;
@@ -34,19 +40,35 @@ newGame();
 function newGame() {
   // Initialize Game State
   state = {
-    scale: 1,
     phase: "aiming", // aiming | in flight | celebrating
     currentPlayer: 1,
+    round: 1,
     bomb: {
       x: undefined,
       y: undefined,
+      rotation: 0,
       velocity: { x: 0, y: 0 },
     },
-    buildings: generateBuildings(),
+
+    // Buildings
+    backgroundBuildings: [],
+    buildings: [],
+    blastHoles: [],
+
+    scale: 1,
   };
 
-  calculateScale();
+  // Generate Background Buildings
+  for (let i = 0; i < 11; i++) {
+    generateBackgroundBuilding(i);
+  }
 
+  // Generate Buildings
+  for (let i = 0; i < 8; i++) {
+    generateBuilding(i);
+  }
+
+  calculateScale();
   initializeBombPosition();
 
   // Reset HTML Elements
@@ -57,36 +79,60 @@ function newGame() {
   velocity2DOM.innerText = 0;
 
   draw();
+
+  if (numberOfPlayers === 0) {
+    computerThrow();
+  }
 }
 
-function generateBuildings() {
-  const buildings = [];
-  for (let index = 0; index < 8; index++) {
-    const previousBuilding = buildings[index - 1];
+function generateBackgroundBuilding(index) {
+  const previousBuilding = state.backgroundBuildings[index - 1];
 
-    const x = previousBuilding
-      ? previousBuilding.x + previousBuilding.width + 4
-      : 0;
+  const x = previousBuilding
+    ? previousBuilding.x + previousBuilding.width + 4
+    : -30;
 
-    const minWidth = 80;
-    const maxWidth = 130;
-    const width = minWidth + Math.random() * (maxWidth - minWidth);
+  const minWidth = 60;
+  const maxWidth = 110;
+  const width = minWidth + Math.random() * (maxWidth - minWidth);
 
-    const platformWithGorilla = index === 1 || index === 6;
+  const minHeight = 80;
+  const maxHeight = 350;
+  const height = minHeight + Math.random() * (maxHeight - minHeight);
 
-    const minHeight = 40;
-    const maxHeight = 300;
-    const minHeightGorilla = 30;
-    const maxHeightGorilla = 150;
+  state.backgroundBuildings.push({ x, width, height });
+}
 
-    const height = platformWithGorilla
-      ? minHeightGorilla + Math.random() * (maxHeightGorilla - minHeightGorilla)
-      : minHeight + Math.random() * (maxHeight - minHeight);
+function generateBuilding(index) {
+  const previousBuilding = state.buildings[index - 1];
 
-    buildings.push({ x, width, height });
+  const x = previousBuilding
+    ? previousBuilding.x + previousBuilding.width + 4
+    : 0;
+
+  const minWidth = 80;
+  const maxWidth = 130;
+  const width = minWidth + Math.random() * (maxWidth - minWidth);
+
+  const platformWithGorilla = index === 1 || index === 6;
+
+  const minHeight = 40;
+  const maxHeight = 300;
+  const minHeightGorilla = 30;
+  const maxHeightGorilla = 150;
+
+  const height = platformWithGorilla
+    ? minHeightGorilla + Math.random() * (maxHeightGorilla - minHeightGorilla)
+    : minHeight + Math.random() * (maxHeight - minHeight);
+
+  // Generate an array of booleans to show if the light is on or off in a room
+  const lightsOn = [];
+  for (let i = 0; i < 50; i++) {
+    const light = Math.random() <= 0.33 ? true : false;
+    lightsOn.push(light);
   }
 
-  return buildings;
+  state.buildings.push({ x, width, height, lightsOn });
 }
 
 function calculateScale() {
@@ -118,9 +164,9 @@ function initializeBombPosition() {
 
   state.bomb.x = gorillaX + gorillaHandOffsetX;
   state.bomb.y = gorillaY + gorillaHandOffsetY;
-
   state.bomb.velocity.x = 0;
   state.bomb.velocity.y = 0;
+  state.bomb.rotation = 0;
 
   // Initialize the position of the grab area in HTML
   const grabAreaRadius = 15;
@@ -140,7 +186,8 @@ function draw() {
 
   // Draw scene
   drawBackground();
-  drawBuildings();
+  drawBackgroundBuildings();
+  drawBuildingsWithBlastHoles();
   drawGorilla(1);
   drawGorilla(2);
   drawBomb();
@@ -150,19 +197,99 @@ function draw() {
 }
 
 function drawBackground() {
-  ctx.fillStyle = "#58A8D8";
+  const gradient = ctx.createLinearGradient(
+    0,
+    0,
+    0,
+    window.innerHeight / state.scale
+  );
+  gradient.addColorStop(1, "#F8BA85");
+  gradient.addColorStop(0, "#FFC28E");
+
+  // Draw Sky
+  ctx.fillStyle = gradient;
   ctx.fillRect(
     0,
     0,
     window.innerWidth / state.scale,
     window.innerHeight / state.scale
   );
+
+  // Draw Moon
+  ctx.fillStyle = "rgba(255, 255, 255, 0.6)";
+  ctx.beginPath();
+  ctx.arc(300, 350, 60, 0, 2 * Math.PI);
+  ctx.fill();
+}
+
+function drawBackgroundBuildings() {
+  state.backgroundBuildings.forEach((building) => {
+    ctx.fillStyle = "#947285";
+    ctx.fillRect(building.x, 0, building.width, building.height);
+  });
+}
+
+function drawBuildingsWithBlastHoles() {
+  ctx.save();
+
+  state.blastHoles.forEach((blastHole) => {
+    ctx.beginPath();
+
+    // Outer Shape Clockwise
+    ctx.rect(
+      0,
+      0,
+      window.innerWidth / state.scale,
+      window.innerHeight / state.scale
+    );
+
+    // Inner Shape Counterclockwise
+    ctx.arc(blastHole.x, blastHole.y, blastHoleRadius, 0, 2 * Math.PI, true);
+
+    ctx.clip();
+  });
+
+  drawBuildings();
+
+  ctx.restore();
 }
 
 function drawBuildings() {
   state.buildings.forEach((building) => {
-    ctx.fillStyle = "#152A47";
+    // Draw Building
+    ctx.fillStyle = "#4A3C68";
     ctx.fillRect(building.x, 0, building.width, building.height);
+
+    // Draw Windows
+    const windowWidth = 10;
+    const windowHeight = 12;
+    const gap = 15;
+
+    const numberOfFloors = Math.ceil(
+      (building.height - gap) / (windowHeight + gap)
+    );
+    const numberOfRoomsPerFloor = Math.floor(
+      (building.width - gap) / (windowWidth + gap)
+    );
+
+    for (let floor = 0; floor < numberOfFloors; floor++) {
+      for (let room = 0; room < numberOfRoomsPerFloor; room++) {
+        if (building.lightsOn[floor * numberOfRoomsPerFloor + room]) {
+          ctx.save();
+
+          ctx.translate(building.x + gap, building.height - gap);
+          ctx.scale(1, -1);
+
+          const x = room * (windowWidth + gap);
+          const y = floor * (windowHeight + gap);
+
+          ctx.fillStyle = "#EBB6A2";
+          ctx.fillRect(x, y, windowWidth, windowHeight);
+
+          ctx.restore();
+        }
+      }
+    }
   });
 }
 
@@ -179,7 +306,8 @@ function drawGorilla(player) {
   drawGorillaBody();
   drawGorillaLeftArm(player);
   drawGorillaRightArm(player);
-  drawGorillaFace();
+  drawGorillaFace(player);
+  drawGorillaThoughtBubbles(player);
 
   ctx.restore();
 }
@@ -188,23 +316,20 @@ function drawGorillaBody() {
   ctx.fillStyle = "black";
 
   ctx.beginPath();
-
-  // Starting Position
   ctx.moveTo(0, 15);
-
-  // Left Leg
   ctx.lineTo(-7, 0);
   ctx.lineTo(-20, 0);
+  ctx.lineTo(-17, 18);
+  ctx.lineTo(-20, 44);
 
-  // Main Body
-  ctx.lineTo(-13, 77);
+  ctx.lineTo(-11, 77);
   ctx.lineTo(0, 84);
-  ctx.lineTo(13, 77);
+  ctx.lineTo(11, 77);
 
-  // Right Leg
+  ctx.lineTo(20, 44);
+  ctx.lineTo(17, 18);
   ctx.lineTo(20, 0);
   ctx.lineTo(7, 0);
-
   ctx.fill();
 }
 
@@ -213,12 +338,16 @@ function drawGorillaLeftArm(player) {
   ctx.lineWidth = 18;
 
   ctx.beginPath();
-  ctx.moveTo(-13, 50);
+  ctx.moveTo(-14, 50);
 
-  if (
-    (state.phase === "aiming" && state.currentPlayer === 1 && player === 1) ||
-    (state.phase === "celebrating" && state.currentPlayer === player)
-  ) {
+  if (state.phase === "aiming" && state.currentPlayer === 1 && player === 1) {
+    ctx.quadraticCurveTo(
+      -44,
+      63,
+      -28 - state.bomb.velocity.x / 6.25,
+      107 - state.bomb.velocity.y / 6.25
+    );
+  } else if (state.phase === "celebrating" && state.currentPlayer === player) {
     ctx.quadraticCurveTo(-44, 63, -28, 107);
   } else {
     ctx.quadraticCurveTo(-44, 45, -28, 12);
@@ -232,12 +361,16 @@ function drawGorillaRightArm(player) {
   ctx.lineWidth = 18;
 
   ctx.beginPath();
-  ctx.moveTo(+13, 50);
+  ctx.moveTo(+14, 50);
 
-  if (
-    (state.phase === "aiming" && state.currentPlayer === 2 && player === 2) ||
-    (state.phase === "celebrating" && state.currentPlayer === player)
-  ) {
+  if (state.phase === "aiming" && state.currentPlayer === 2 && player === 2) {
+    ctx.quadraticCurveTo(
+      +44,
+      63,
+      +28 - state.bomb.velocity.x / 6.25,
+      107 - state.bomb.velocity.y / 6.25
+    );
+  } else if (state.phase === "celebrating" && state.currentPlayer === player) {
     ctx.quadraticCurveTo(+44, 63, +28, 107);
   } else {
     ctx.quadraticCurveTo(+44, 45, +28, 12);
@@ -246,48 +379,116 @@ function drawGorillaRightArm(player) {
   ctx.stroke();
 }
 
-function drawGorillaFace() {
-  ctx.strokeStyle = "lightgray";
-  ctx.lineWidth = 3;
-
+function drawGorillaFace(player) {
+  // Face
+  ctx.fillStyle = "lightgray";
   ctx.beginPath();
+  ctx.arc(0, 63, 9, 0, 2 * Math.PI);
+  ctx.moveTo(-3.5, 70);
+  ctx.arc(-3.5, 70, 4, 0, 2 * Math.PI);
+  ctx.moveTo(+3.5, 70);
+  ctx.arc(+3.5, 70, 4, 0, 2 * Math.PI);
+  ctx.fill();
 
-  // Left Eye
-  ctx.moveTo(-5, 70);
-  ctx.lineTo(-2, 70);
+  // Eyes
+  ctx.fillStyle = "black";
+  ctx.beginPath();
+  ctx.arc(-3.5, 70, 1.4, 0, 2 * Math.PI);
+  ctx.moveTo(+3.5, 70);
+  ctx.arc(+3.5, 70, 1.4, 0, 2 * Math.PI);
+  ctx.fill();
 
-  // Right Eye
-  ctx.moveTo(2, 70);
-  ctx.lineTo(5, 70);
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 1.4;
+
+  // Nose
+  ctx.beginPath();
+  ctx.moveTo(-3.5, 66.5);
+  ctx.lineTo(-1.5, 65);
+  ctx.moveTo(3.5, 66.5);
+  ctx.lineTo(1.5, 65);
+  ctx.stroke();
 
   // Mouth
-  ctx.moveTo(-5, 62);
-  ctx.lineTo(5, 62);
-
+  ctx.beginPath();
+  if (state.phase === "celebrating" && state.currentPlayer === player) {
+    ctx.moveTo(-5, 60);
+    ctx.quadraticCurveTo(0, 56, 5, 60);
+  } else {
+    ctx.moveTo(-5, 56);
+    ctx.quadraticCurveTo(0, 60, 5, 56);
+  }
   ctx.stroke();
 }
 
-function drawBomb() {
-  // Draw Throwing Trajectory
+function drawGorillaThoughtBubbles(player) {
   if (state.phase === "aiming") {
+    const currentPlayerIsComputer =
+      (numberOfPlayers === 0 && state.currentPlayer === 1 && player === 1) ||
+      (numberOfPlayers !== 2 && state.currentPlayer === 2 && player === 2);
+
+    if (currentPlayerIsComputer) {
+      ctx.save();
+      ctx.scale(1, -1);
+
+      ctx.font = "20px sans-serif";
+      ctx.textAlign = "center";
+      ctx.fillText("?", 0, -90);
+
+      ctx.font = "10px sans-serif";
+
+      ctx.rotate((5 / 180) * Math.PI);
+      ctx.fillText("?", 0, -90);
+
+      ctx.rotate((-10 / 180) * Math.PI);
+      ctx.fillText("?", 0, -90);
+
+      ctx.restore();
+    }
+  }
+}
+
+function drawBomb() {
+  ctx.save();
+  ctx.translate(state.bomb.x, state.bomb.y);
+
+  if (state.phase === "aiming") {
+    // Move Bomb with Mouse while aiming
+    ctx.translate(-state.bomb.velocity.x / 6.25, -state.bomb.velocity.y / 6.25);
+
+    // Draw Throwing Trajectory
     ctx.strokeStyle = "rgba(255, 255, 255, 0.7)";
     ctx.setLineDash([3, 8]);
     ctx.lineWidth = 3;
-
     ctx.beginPath();
-    ctx.moveTo(state.bomb.x, state.bomb.y);
-    ctx.lineTo(
-      state.bomb.x + state.bomb.velocity.x,
-      state.bomb.y + state.bomb.velocity.y
-    );
+    ctx.moveTo(0, 0);
+    ctx.lineTo(state.bomb.velocity.x, state.bomb.velocity.y);
     ctx.stroke();
+
+    // Draw Circle
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(0, 0, 6, 0, 2 * Math.PI);
+    ctx.fill();
+  } else if (state.phase === "in flight") {
+    // Draw Rotated Banana
+    ctx.fillStyle = "white";
+    ctx.rotate(state.bomb.rotation);
+    ctx.beginPath();
+    ctx.moveTo(-8, -2);
+    ctx.quadraticCurveTo(0, 12, 8, -2);
+    ctx.quadraticCurveTo(0, 2, -8, -2);
+    ctx.fill();
+  } else {
+    // Draw Circle
+    ctx.fillStyle = "white";
+    ctx.beginPath();
+    ctx.arc(0, 0, 6, 0, 2 * Math.PI);
+    ctx.fill();
   }
 
-  // Draw Circle
-  ctx.fillStyle = "white";
-  ctx.beginPath();
-  ctx.arc(state.bomb.x, state.bomb.y, 6, 0, 2 * Math.PI);
-  ctx.fill();
+  // Restore Transformation
+  ctx.restore();
 }
 
 // Event Handlers
@@ -306,13 +507,14 @@ window.addEventListener("mousemove", function (e) {
     let deltaY = e.clientY - dragStartY;
 
     state.bomb.velocity.x = -deltaX;
-    state.bomb.velocity.y = +deltaY;
+    state.bomb.velocity.y = deltaY;
     setInfo(deltaX, deltaY);
 
     draw();
   }
 });
 
+// Set Values on the Info Panel
 function setInfo(deltaX, deltaY) {
   const hypotenuse = Math.sqrt(deltaX ** 2 + deltaY ** 2);
   const angleInRadians = Math.asin(deltaY / hypotenuse);
@@ -336,10 +538,81 @@ window.addEventListener("mouseup", function () {
   }
 });
 
+function computerThrow() {
+  const numberOfSimulations = 2 + state.round * 3;
+  const bestThrow = runSimulations(numberOfSimulations);
+
+  initializeBombPosition();
+  state.bomb.velocity.x = bestThrow.velocityX;
+  state.bomb.velocity.y = bestThrow.velocityY;
+  setInfo(bestThrow.velocityX, bestThrow.velocityY);
+
+  // Draw Aiming Gorilla
+  draw();
+
+  // Make it look like the computer is thinking for a second
+  setTimeout(throwBomb, 1000);
+}
+
+// Simulate Multiple Throws and Pick the Best
+function runSimulations(numberOfSimulations) {
+  let bestThrow = {
+    velocityX: undefined,
+    velocityY: undefined,
+    distance: Infinity,
+  };
+  simulationMode = true;
+
+  // Calculate Center Position of the Enemy
+  const enemyBuilding =
+    state.currentPlayer === 1
+      ? state.buildings.at(-2) // Second Last Building
+      : state.buildings.at(1); // Second Building
+  const enemyX = enemyBuilding.x + enemyBuilding.width / 2;
+  const enemyY = enemyBuilding.height + 30;
+
+  for (let i = 0; i < numberOfSimulations; i++) {
+    // Pick Random Angle and Velocity
+    const angleInDegrees = 0 + Math.random() * 90;
+    const angleInRadians = (angleInDegrees / 180) * Math.PI;
+    const velocity = 40 + Math.random() * 100;
+
+    // Calculate Horizontal and Vertical Velocity
+    const direction = state.currentPlayer === 1 ? 1 : -1;
+    const velocityX = Math.cos(angleInRadians) * velocity * direction;
+    const velocityY = Math.sin(angleInRadians) * velocity;
+
+    initializeBombPosition();
+    state.bomb.velocity.x = velocityX;
+    state.bomb.velocity.y = velocityY;
+
+    throwBomb();
+
+    // Calculate Distance Between Simulated Impact and Enemy
+    const distance = Math.sqrt(
+      (enemyX - simulationImpact.x) ** 2 + (enemyY - simulationImpact.y) ** 2
+    );
+
+    // If Current Impact is Closer to the Enemy than any Previous Simulation
+    // Choose this one
+    if (distance < bestThrow.distance) {
+      bestThrow = { velocityX, velocityY, distance };
+    }
+  }
+
+  simulationMode = false;
+  return bestThrow;
+}
+
 function throwBomb() {
-  state.phase = "in flight";
-  previousAnimationTimestamp = undefined;
-  requestAnimationFrame(animate);
+  if (simulationMode) {
+    previousAnimationTimestamp = 0;
+    animate(16);
+  } else {
+    state.phase = "in flight";
+    previousAnimationTimestamp = undefined;
+    requestAnimationFrame(animate);
+  }
 }
 
 function animate(timestamp) {
@@ -351,49 +624,76 @@ function animate(timestamp) {
 
   const elapsedTime = timestamp - previousAnimationTimestamp;
 
+  // Animation Cycle broken down to 10 segments for better Hit Detection Precision
   const hitDetectionPrecision = 10;
   for (let i = 0; i < hitDetectionPrecision; i++) {
     moveBomb(elapsedTime / hitDetectionPrecision); // Hit Detection
 
     // Hit Detection
-    const miss = checkFrameHit() || checkBuildingHit(); 
-    const hit = checkGorillaHit();
+    const miss = checkFrameHit() || checkBuildingHit(); // Bomb went off-screen or hit building
+    const hit = checkGorillaHit(); // Bomb hit the enemy
+
+    if (simulationMode && (hit || miss)) {
+      simulationImpact = { x: state.bomb.x, y: state.bomb.y };
+      return; // End Simulation Loop
+    }
 
     // Handle the case when we hit a building or the bomb got off-screen
     if (miss) {
       state.currentPlayer = state.currentPlayer === 1 ? 2 : 1; // Switch Players
+      if (state.currentPlayer === 1) state.round++;
       state.phase = "aiming";
       initializeBombPosition();
+
       draw();
+
+      const computerThrowsNext =
+        numberOfPlayers === 0 ||
+        (numberOfPlayers === 1 && state.currentPlayer === 2);
+      
+      if (computerThrowsNext) setTimeout(computerThrow, 50);
+
       return;
-    } 
-  
+    }
+
     // Handle the case when we hit the enemy
     if (hit) {
       state.phase = "celebrating";
       announceWinner();
+
       draw();
       return;
     }
   }
 
-  draw();
+  if (!simulationMode) draw();
 
   // Continue Animation Loop
   previousAnimationTimestamp = timestamp;
-  requestAnimationFrame(animate);
+  if (simulationMode) {
+    animate(timestamp + 16);
+  } else {
+    requestAnimationFrame(animate);
+  }
 }
 
 function moveBomb(elapsedTime) {
-  const multiplier = elapsedTime / 200; // Adjust Trajectory by Gravity
+  const multiplier = elapsedTime / 200;
 
-  state.bomb.velocity.y -= 20 * multiplier; // Calculate New Position
+  // Adjust Trajectory by Gravity
+  state.bomb.velocity.y -= 20 * multiplier;
 
+  // Calculate New Position
   state.bomb.x += state.bomb.velocity.x * multiplier;
   state.bomb.y += state.bomb.velocity.y * multiplier;
+
+  // Rotate According to Direction
+  const direction = state.currentPlayer === 1 ? -1 : +1;
+  state.bomb.rotation += direction * 5 * multiplier;
 }
 
 function checkFrameHit() {
+  // Stop Throw Animation when Bomb goes off screen
   if (
     state.bomb.y < 0 ||
     state.bomb.x < 0 ||
@@ -411,6 +711,26 @@ function checkBuildingHit() {
       state.bomb.x - 4 < building.x + building.width &&
       state.bomb.y - 4 < 0 + building.height
     ) {
+      // Check if bomb is inside the Blast Hole of a Previous Impact
+      for (let j = 0; j < state.blastHoles.length; j++) {
+        const blastHole = state.blastHoles[j];
+
+        // Check how far the bomb is from the center of a previous blast hole
+        const horizontalDistance = state.bomb.x - blastHole.x;
+        const verticalDistance = state.bomb.y - blastHole.y;
+        const distance = Math.sqrt(
+          horizontalDistance ** 2 + verticalDistance ** 2
+        );
+        if (distance < blastHoleRadius) {
+          // The bomb is inside of the rectangle of a building
+          // but a previous bomb already blew off this part of the building
+          return false;
+        }
+      }
+
+      if (!simulationMode) {
+        state.blastHoles.push({ x: state.bomb.x, y: state.bomb.y });
+      }
       return true;
     }
   }
@@ -440,7 +760,7 @@ function checkGorillaHit() {
   hit ||= ctx.isPointInStroke(state.bomb.x, state.bomb.y);
 
   ctx.restore();
-  
+
   return hit;
 }
 
