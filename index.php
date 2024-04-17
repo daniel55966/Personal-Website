@@ -152,6 +152,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
           </p>
           <a href="#portfolio" class="btn btn-primary btn-large mt-3" role="button">Portfolio</a>
           <a href="#contact" class="btn btn-primary btn-large mt-3" role="button">Contact Me</a>
+          <a href="./Resume.pdf" class="btn btn-primary btn-large mt-3" role="button" target="_blank">Résumé</a>
         </div>
       </div>
     </div>
@@ -533,7 +534,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2023 Copyright:
+      © 2024 Copyright:
       <a class="text-white">Daniel Anderson</a>
     </div>
     <!-- Copyright -->
