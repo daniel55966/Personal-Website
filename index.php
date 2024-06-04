@@ -261,13 +261,12 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
             <div class="card-body">
               <h3 class="card-title">To Do List</h3>
               <hr class="bg-primary" />
-              <p class="card-text">A simple to-do list, where tasks can be added and deleted
-                when completed.
+              <p class="card-text">A simple to-do list built in React, where tasks can be added and deleted when completed. UPDATE: As of 6/4/2024, I've built a fullstack to-do list using Golang, React, ChakraUI, TypeScript, MongoDB, and TanStack.
               </p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="/todolist.html" target="_blank">To Do List</a>
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://github.com/daniel55966/To-Do-List-React" target="_blank">React Version (Github Pages)</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://github.com/daniel55966/To-Do-List-React" target="_blank">To-Do List</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://react-go-tutorial-production-02af.up.railway.app/" target="_blank">Full Stack Version</a>
             </div>
           </div>
         </div>
