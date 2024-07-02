@@ -407,7 +407,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
               <p class="card-text">An updated version of the classic game Gorillas built using Javascript.</p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="Gorillas-Game/gorillas.html" _blank">Gorillas Game</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="Gorillas-Game/gorillas.html" target="_blank">Gorillas Game</a>
             </div>
           </div>
         </div>
@@ -422,7 +422,22 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
               <p class="card-text">A game of chess built using React and the Chess.js and Chessboard.js libraries.</p>
             </div>
             <div class="card-footer">
-              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/chess-game/" _blank">Chess</a>
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/chess-game/" target="_blank">Chess</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Tetris</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A version of Tetris built using React and Typescript.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/React-Tetris/" target="_blank">Tetris</a>
             </div>
           </div>
         </div>
