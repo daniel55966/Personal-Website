@@ -443,6 +443,21 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         </div>
         <!-- Portfolio Item End -->
 
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Sticky Notes</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A Sticky Notes App built using React and Appwrite.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://daniel55966.github.io/sticky-notes-app/" target="_blank">Sticky Notes</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
       </div>
     </div><br>
 
