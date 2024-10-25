@@ -11,5 +11,9 @@
   "devDependencies": {
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
+  },
+  "dependencies": {
+    "rollout": "^0.1.0",
+    "rollup": "^4.22.4"
   }
 }
