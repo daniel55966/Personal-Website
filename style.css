@@ -178,37 +178,81 @@ p {
   background-attachment: scroll;
 } 
 
-/* Dice Roller */
+/* Dice Roller Container Styling */
 .dice-roller {
   background-color: maroon;
   color: white;
-
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  margin: auto;
+  font-family: 'Arial', sans-serif;
 }
 
-.dice-number, .dice, .dice-results {
-  margin: 10px;
+/* Center Column for Dice and Results */
+.center-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.dnd-button {
-  display: inline-block;
-  background-color: lightgrey;
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
+/* Background Styling */
 .dnd-body {
   background-image: url("https://images.unsplash.com/photo-1506462313968-6a1f37574ec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1528&q=80");
   background-size: cover;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  min-height: 100vh;
 }
 
-.center-column {
-  background-color: rgba(255, 255, 255, 0.8);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: scroll;
+/* Dice and Results Styling */
+.dice-number, .dice, .dice-results {
+  margin: 10px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
 }
+
+/* Button Styling */
+.dnd-button {
+  display: inline-block;
+  background-color: #d3d3d3;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.dnd-button:hover {
+  background-color: #c0c0c0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dice-roller {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .dice-number, .dice, .dice-results {
+    font-size: 1em;
+    margin: 5px;
+  }
+
+  .dnd-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
 
 /* Calculator */
 .calculator {
