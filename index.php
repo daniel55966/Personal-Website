@@ -473,6 +473,21 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         </div>
         <!-- Portfolio Item End -->
 
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Kaplay with React Concept</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A simple game built using the Kaplay JS library, React, and Jotai where you control a character on a single screen. Approach the NPC from different directions to have him share different messages with you. Press spacebar to close the dialog box after.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://kaplay-react-tutorial.vercel.app/" target="_blank">Kaplay with React Concept</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
       </div>
     </div><br>
 
