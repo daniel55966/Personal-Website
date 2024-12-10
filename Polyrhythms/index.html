@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polyrhythm</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(to bottom, #2b2b2b, #1a1a1a);
+      font-family: 'Arial', sans-serif;
+      color: white;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    canvas {
+      display: block;
+      border: 2px solid #4caf50;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px; /* Space between canvas and button */
+    }
+
+    button {
+      background: #4caf50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #45a049;
+    }
+
+    @media (max-width: 768px) {
+      canvas {
+        width: 90%;
+        height: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Polyrhythm Example</h1>
+    <canvas id="myCanvas"></canvas>
+    <button id="toggleSound">Toggle Sound</button>
+  </div>
+  <script src="sound.js"></script>
+  <script src="track.js"></script>
+  <script src="ball.js"></script>
+  <script>
+    const size = 700;
+    myCanvas.width = size;
+    myCanvas.height = size / 2;
+
+    const trackCenter = { x: size / 2, y: size / 2 };
+    const trackMinRadius = 50;
+    const trackStep = 15;
+    const ballRadius = 6;
+    const ballMinSpeed = 0.01;
+    const ballSpeedStep = -0.0001;
+
+    const soundFrequencies = [
+      1760, 1567.98, 1396.91, 1318.51, 1174.66, 1046.5, 987.77, 880,
+      783.99, 698.46, 659.25, 587.33, 523.25, 493.88, 440, 392, 349.23, 329.63, 293.66, 261.63
+    ];
+
+    const tracks = [];
+    const balls = [];
+    const N = 20;
+
+    let soundOn = false;
+
+    for (let i = 0; i < N; i++) {
+      const trackRadius = trackMinRadius + i * trackStep;
+      const ballSpeed = ballMinSpeed + i * ballSpeedStep;
+      const ballSoundFrequency = soundFrequencies[i];
+      const hue = (i * 360) / N;
+      const track = new Track(trackCenter, trackRadius, hue);
+      const ball = new Ball(track, ballRadius, ballSpeed, ballSoundFrequency, hue);
+      tracks.push(track);
+      balls.push(ball);
+    }
+
+    const ctx = myCanvas.getContext("2d");
+
+    animate();
+
+    function animate() {
+      ctx.clearRect(0, 0, size, size);
+      tracks.forEach((track) => track.draw(ctx));
+      balls.forEach((ball) => ball.move());
+      balls.forEach((ball) => ball.draw(ctx));
+      requestAnimationFrame(animate);
+    }
+
+    document.getElementById('toggleSound').addEventListener('click', () => {
+      soundOn = !soundOn;
+    });
+  </script>
+</body>
+</html>

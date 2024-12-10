@@ -488,6 +488,22 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         </div>
         <!-- Portfolio Item End -->
 
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Polyrhythm Example</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A simple project showing how Polyrhythmic patterns can be created using several JavaScript math functions.</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="Polyrhythms/index.html" target="_blank">Polyrhythm</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
+
       </div>
     </div><br>
 
