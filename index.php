@@ -503,6 +503,20 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         </div>
         <!-- Portfolio Item End -->
 
+        <!-- Portfolio Item -->
+                <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Memory Match Game</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A Match Two game built using React focusing on Accessibility concepts</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://memory-game-eight-rosy.vercel.app/" target="_blank">Memory Match Game</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
 
       </div>
     </div><br>
@@ -624,7 +638,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
 
     <!-- Copyright -->
     <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2024 Copyright:
+      © 2025 Copyright:
       <a class="text-white">Daniel Anderson</a>
     </div>
     <!-- Copyright -->
