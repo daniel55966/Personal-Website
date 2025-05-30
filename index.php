@@ -564,6 +564,21 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         </div>
         <!-- Portfolio Item End -->
 
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Redux Toolkit Movie App</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A simple movie app built using React with Redux Toolkit and RTK Query</p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://redux-toolkit-tutorial-zeta.vercel.app/" target="_blank">Redux Movie App</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
       </div>
     </div><br>
 
