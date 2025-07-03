@@ -579,6 +579,21 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         </div>
         <!-- Portfolio Item End -->
 
+        <!-- Portfolio Item -->
+        <div class="col mb-4">
+          <div class="card bg-light text-center border-light shadow h-100">
+            <div class="card-body">
+              <h3 class="card-title">Redux Toolkit Movie App</h3>
+              <hr class="bg-primary" />
+              <p class="card-text">A Calendly clone built using React, Typescript, Next.js, and TailwindCSS with Google Calendar functionality. Note: The code works in development perfectly, unfortunately I cannot publish the app to Google directly at this time. </p>
+            </div>
+            <div class="card-footer">
+              <a class="btn btn-outline-primary btn-lg mt-2" role="button" href="https://calendra-app-k28e.vercel.app/" target="_blank">Calendly Clone: Calendra</a>
+            </div>
+          </div>
+        </div>
+        <!-- Portfolio Item End -->
+
       </div>
     </div><br>
 
