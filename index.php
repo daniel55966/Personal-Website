@@ -583,7 +583,7 @@ if (($_SERVER["REQUEST_METHOD"] == "POST") && (!($formErr))) {
         <div class="col mb-4">
           <div class="card bg-light text-center border-light shadow h-100">
             <div class="card-body">
-              <h3 class="card-title">Redux Toolkit Movie App</h3>
+              <h3 class="card-title">Calendra App</h3>
               <hr class="bg-primary" />
               <p class="card-text">A Calendly clone built using React, Typescript, Next.js, and TailwindCSS with Google Calendar functionality. Note: The code works in development perfectly, unfortunately I cannot publish the app to Google directly at this time. </p>
             </div>
