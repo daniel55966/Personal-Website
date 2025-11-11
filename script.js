@@ -184,7 +184,7 @@ windSpeed = document.querySelector("#windSpeed");
 humidity = document.querySelector(".humidity");
 weather = document.querySelector(".weather");
 desc = document.querySelector(".desc");
-API = "8cf5ac5621c8d0266298a149e49d7514";
+// API = "8cf5ac5621c8d0266298a149e49d7514";
 
 // Weather Details
 const setWeatherDetails = (data) => {
