@@ -20,6 +20,7 @@
     "express": "^4.21.1",
     "express-hbs": "^2.5.0",
     "fresh": "^0.5.2",
+    "glob": "^13.0.0",
     "handlebars": "^4.7.7",
     "mime": "^4.0.4",
     "minimatch": "^10.0.1",
